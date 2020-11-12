@@ -20,7 +20,7 @@ class App extends Component {
 
   render() {
     return (
-      <div>Let's get ready to rumble!!! Oh yeah</div>
+      <div>Succesfully rendering main App component!</div>
     );
   }
 }
