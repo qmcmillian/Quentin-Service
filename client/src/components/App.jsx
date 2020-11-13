@@ -3,6 +3,12 @@ import ReactDOM from 'react-dom';
 import axios from 'axios';
 import Ratings from './Ratings.jsx';
 import Reviews from './Reviews.jsx';
+import GlobalFonts from '../fonts/fonts.js';
+import styled from 'styled-components';
+
+const Wrapper = styled.div`
+  display: flex;
+`;
 
 class App extends Component {
   constructor(props) {
@@ -13,7 +19,6 @@ class App extends Component {
   }
 
   componentDidMount() {
-    console.log('component mounted');
     const randomProductId = Math.floor(Math.random() * 100) + 1;
     axios.get(`/api/products/${randomProductId}/reviews`)
       .then(results => {
@@ -27,10 +32,11 @@ class App extends Component {
   render() {
     const ratings = this.state.reviews.map(review => review.overall_rating);
     return (
-      <div>Succesfully rendering main App component!
+      <Wrapper>
+        <GlobalFonts />
         {this.state.reviews.length ? <Ratings ratings={ratings}/> : 'No ratings yet for product'}
         {this.state.reviews.length ? <Reviews reviews={this.state.reviews}/> : 'No reviews yet for product.'}
-      </div>
+      </Wrapper>
     );
   }
 }
