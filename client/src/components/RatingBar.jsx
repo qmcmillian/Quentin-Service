@@ -5,7 +5,7 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 0;
+  height: 35px;
 `;
 
 const Link = styled.p`

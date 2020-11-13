@@ -8,12 +8,14 @@ const Headline = styled.h1`
   font-weight: 700;
   width: 300px;
   font-size: 1.7em;
+  margin: 0;
 `;
 
 const GrayText = styled.p`
   font-family: 'PT Sans';
   font-size: .9em;
   color: #565959;
+  margin: 8px 0;
 `;
 
 const Ratings = ({ratings}) => {
@@ -42,8 +44,10 @@ const Ratings = ({ratings}) => {
   return (
     <div style={{marginRight: '100px', marginLeft: '10px'}}>
       <Headline>Customer reviews</Headline>
-      <Stars rating={globalAverage * 20}/>
-      <div>{globalAverage} out of 5</div>
+      <div style={{display: 'flex', alignItems: 'flex-end'}}>
+        <Stars rating={globalAverage * 20}/>
+        <div style={{fontFamily: 'PT Sans', fontSize: '1.2em', marginLeft: '10px'}}>{globalAverage} out of 5</div>
+      </div>
       <GrayText>{len} global rating{len > 1 && 's'}</GrayText>
       {percentages.map((percentage, index) => <RatingBar key={index} percentage={percentage} stars={5 - index}/>)}
     </div>
