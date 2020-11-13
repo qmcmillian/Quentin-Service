@@ -1,4 +1,10 @@
 import React from 'react';
+import styled from 'styled-components';
+
+const Headline = styled.h1`
+  font-family: 'Amazon Ember';
+  font-size: .9em;
+`;
 
 const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
@@ -14,7 +20,7 @@ const ReviewItem = ({review}) => {
       {user_name}
     </div>
     <div>
-      Stars Component... <strong>{headline}</strong>
+      Stars Component... <Headline>{headline}</Headline>
     </div>
     <div>
       Reviewed in {country} on {`${months[month - 1]} ${day}, ${year}`}

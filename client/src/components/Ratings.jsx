@@ -1,5 +1,12 @@
 import React from 'react';
 import RatingBar from './RatingBar.jsx';
+import styled from 'styled-components';
+
+const Headline = styled.h1`
+  font-family: 'Amazon Ember';
+  width: 300px;
+  font-size: 1.5em;
+`;
 
 const Ratings = ({ratings}) => {
   const len = ratings.length;
@@ -26,7 +33,7 @@ const Ratings = ({ratings}) => {
 
   return (
     <div>
-      <div>Customer reviews</div>
+      <Headline>Customer reviews</Headline>
         <div>Stars... {globalAverage} out of 5</div>
         <div>{len} global rating{len > 1 && 's'}</div>
         {percentages.map((percentage, index) => <RatingBar key={index} percentage={percentage} stars={5 - index}/>)}
