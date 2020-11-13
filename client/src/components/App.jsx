@@ -25,9 +25,10 @@ class App extends Component {
   }
 
   render() {
+    const ratings = this.state.reviews.map(review => review.overall_rating);
     return (
       <div>Succesfully rendering main App component!
-        <Ratings />
+        {this.state.reviews.length ? <Ratings ratings={ratings}/> : 'No ratings yet for product'}
         {this.state.reviews.length ? <Reviews reviews={this.state.reviews}/> : 'No reviews yet for product.'}
       </div>
     );
