@@ -28,6 +28,7 @@ const ReviewText = styled.p`
   font-family: 'PT Sans';
   font-size: 0.9em;
   margin: 5px 0 9px 0;
+  max-width: 585px;
 `;
 
 const GrayText = styled.p`
@@ -68,6 +69,16 @@ const Verified = styled.p`
   margin: 3px 0 0 0;
 `;
 
+const Button = styled.button`
+  font-family: 'PT Sans';
+  height: 29px;
+  width: 98px;
+  padding: 1px 22px;
+  cursor: pointer;
+  opacity: .9;
+  margin-right: 18px;
+`;
+
 const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
 const ReviewItem = ({review}) => {
@@ -93,7 +104,9 @@ const ReviewItem = ({review}) => {
       {`${helpful} people found this helpful`}
     </GrayText>
     <div style={{display: 'inline-flex', alignItems: 'center', width: '300px', height: '50px'}}>
-      <button style={{height: '29px', width: '98px', padding: '1px 22px', cursor: 'pointer', opacity: '.90', marginRight: '18px'}}>Helpful</button><ThinLine><Comment>Comment</Comment></ThinLine><ThinLine><Report>Report abuse</Report></ThinLine>
+      <Button>Helpful</Button>
+      <ThinLine><Comment>Comment</Comment></ThinLine>
+      <ThinLine><Report>Report abuse</Report></ThinLine>
     </div>
   </Container>
   );
