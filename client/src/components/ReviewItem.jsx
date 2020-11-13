@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Stars from './Stars.jsx';
 
 const Container = styled.div`
   margin-bottom: 30px;
@@ -11,12 +12,18 @@ const Box = styled.div`
 `;
 
 const Headline = styled.h1`
-  font-family: 'Amazon Ember';
-  font-size: .9em;
+  font-family: 'PT Sans';
+  font-size: 1em;
+  margin-left: 10px;
+`;
+
+const ReviewText = styled.p`
+  font-family: 'PT Sans';
+  font-size: 0.9em;
 `;
 
 const GrayText = styled.p`
-  font-family: 'Arial';
+  font-family: 'PT Sans';
   font-size: .9em;
   color: #565959;
 `;
@@ -29,7 +36,8 @@ const ThinLine = styled.p`
 `;
 
 const Verified = styled.p`
-  font-family: 'Amazon Ember';
+  font-family: 'PT Sans';
+  font-weight: 700;
   font-size: .75em;
   color: #c45500;
 `;
@@ -45,18 +53,16 @@ const ReviewItem = ({review}) => {
   <Container>
     <Box>
       <img src={avatar} style={{borderRadius: '100%', width: '30px', height: 'auto'}}/>
-      <div style={{marginLeft: '10px'}}>{user_name}</div>
+      <div style={{marginLeft: '10px', fontFamily: 'PT Sans', fontSize: '.8em'}}>{user_name}</div>
     </Box>
-    <div>
-      Stars Component... <Headline>{headline}</Headline>
-    </div>
+    <Box>
+      <Stars rating={overall_rating}/><Headline>{headline}</Headline>
+    </Box>
     <GrayText>
       Reviewed in {country} on {`${months[month - 1]} ${day}, ${year}`}
     </GrayText>
     {verified_purchase === 1 && <Verified>Verified Purchase</Verified>}
-    <div>
-      {full_text}
-    </div>
+    <ReviewText>{full_text}</ReviewText>
     <GrayText>
       {`${helpful} people found this helpful`}
     </GrayText>

@@ -10,7 +10,7 @@ const Container = styled.div`
 
 const Link = styled.p`
   color: #007185;
-  font-family: Arial;
+  font-family: 'PT Sans';
 `;
 
 const fullBarStyle = {

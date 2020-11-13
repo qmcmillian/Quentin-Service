@@ -4,13 +4,14 @@ import styled from 'styled-components';
 import Stars from './Stars.jsx';
 
 const Headline = styled.h1`
-  font-family: 'Amazon Ember';
+  font-family: 'PT Sans';
+  font-weight: 700;
   width: 300px;
-  font-size: 1.5em;
+  font-size: 1.7em;
 `;
 
 const GrayText = styled.p`
-  font-family: 'Arial';
+  font-family: 'PT Sans';
   font-size: .9em;
   color: #565959;
 `;

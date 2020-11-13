@@ -3,17 +3,14 @@ import ReviewItem from './ReviewItem.jsx';
 import styled from 'styled-components';
 
 const Headline = styled.h1`
-  font-family: 'Amazon Ember';
-  font-size: 1.1em;
+  font-family: 'PT Sans';
+  font-size: 1.3em;
 `;
 
 const Reviews = ({reviews}) => (
   <div>
-    Reviews filter
     <Headline>Top reviews from the United States</Headline>
-    <ul>
-    {reviews.map(review => <li><ReviewItem key={review.user_id} review={review}/></li>)}
-    </ul>
+    {reviews.map(review => <ReviewItem key={review.user_id} review={review}/>)}
   </div>
 );
 
