@@ -1,12 +1,22 @@
 import React from 'react';
 import styled from 'styled-components';
 
+const Container = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0;
+`;
+
+const Link = styled.p`
+  color: #007185;
+  font-family: Arial;
+`;
+
 const fullBarStyle = {
   backgroundColor: '#F0F2F2',
   height: '20px',
   width: '200px',
-  marginRight: '150px',
-  marginTop: '15px',
   borderRadius: '4px',
   boxShadow: 'inset 0 0 0 1px #E3E6E6'
 };
@@ -19,24 +29,17 @@ const StyledBar = styled.div`
   width: ${props => props.width}%;
 `;
 
-// {
-//   backgroundColor: '#FFA41C',
-//   borderRadius: '4px 0px 0px 4px',
-//   height: '100%',
-//   width: ${props => props.width},
-//   boxShadow: 'inset -2px 0 0 -1px #F5961D, inset 0 0 0 1px #DE7921'
-// };
-
 const RatingBar = ({percentage, stars}) => {
-
   return (
-    <div style={fullBarStyle}>
-      <StyledBar width={percentage}></StyledBar>
-    </div>
+    <Container>
+      <Link>{stars} star</Link>
+      <div style={fullBarStyle}>
+        <StyledBar width={percentage}></StyledBar>
+      </div>
+      <Link>{percentage}%</Link>
+    </Container>
   );
 };
 
 export default RatingBar;
-
-// <div>{`${percentage}% of people rated this product ${stars} stars`}</div>
 
