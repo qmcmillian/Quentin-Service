@@ -37,8 +37,17 @@ const insertReviews = async () => {
     for (let j = 0; j < numberOfReviews; j++) {
       let product_id = i;
       let user_id = Math.floor(Math.random() * 100) + 1;
-      let overall_rating = Math.floor(Math.random() * 5) + 1;
-      let review_date = faker.date.recent();
+
+      // Rougly mimics average distribution of Amazon reviews
+      let one = new Array(14).fill(1);
+      let two = new Array(6).fill(2);
+      let three = new Array(8).fill(3);
+      let four = new Array(18).fill(4);
+      let five = new Array(54).fill(5);
+      const merged = [...one, ...two, ...three, ...four, ...five];
+      let overall_rating = merged[Math.floor(Math.random() * 100)];
+
+      let review_date = faker.date.past(5, '2020-11-13');;
       let headline = faker.lorem.words();
       let full_text = faker.lorem.paragraph();
       let helpful = Math.floor(Math.random() * 40);
@@ -54,3 +63,4 @@ const insertReviews = async () => {
 };
 
 insertReviews();
+

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReviewItem from './ReviewItem.jsx';
 import styled from 'styled-components';
 
@@ -9,11 +9,41 @@ const Headline = styled.h1`
   margin-bottom: 20px;
 `;
 
-const Reviews = ({reviews}) => (
-  <div>
-    <Headline>Top reviews from the United States</Headline>
-    {reviews.map(review => <ReviewItem key={review.user_id} review={review}/>)}
-  </div>
-);
+const Select = styled.select`
+  font-family: 'PT Sans';
+  font-size: .7em;
+  background-color: #f1f2f2;
+  padding: 1px 40px 1px 3px;
+  margin-bottom: 22px;
+  border-radius: 5px;
+`;
+
+const Reviews = ({topReviews, mostRecent}) => {
+  const [sortBy, setSortBy] = useState('top')
+
+  return (
+    <div>
+      <Select value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
+        <option value="top">Top reviews</option>
+        <option value="recent">Most recent</option>
+      </Select>
+      <Headline>Top reviews from the United States</Headline>
+      {(sortBy === 'top' ? topReviews : mostRecent).map(review => <ReviewItem key={review.user_id} review={review}/>)}
+    </div>
+  );
+};
 
 export default Reviews;
+
+
+/*
+
+Top
+.sort((a, b) => (a.helpful < b.helpful) ? 1 : -1),
+
+Recent
+.sort((a, b) => {
+  return (new Date(b.review_date) > new Date(a.review_date)) ? 1 : -1;
+})
+
+*/

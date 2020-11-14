@@ -30,12 +30,21 @@ class App extends Component {
   }
 
   render() {
-    const ratings = this.state.reviews.map(review => review.overall_rating);
+    const reviews = this.state.reviews;
+
+    // Passing pre-sorted reviews into Reviews component
+    // Sorts once before the first render, then the toggle is lightning fast because we don't have to repeatedly sort the reviews
+    const topReviews = [...reviews].sort((a, b) => (a.helpful < b.helpful) ? 1 : -1);
+    const mostRecent = [...reviews].sort((a, b) => {
+      return (new Date(b.review_date) > new Date(a.review_date)) ? 1 : -1;
+    });
+
+    const ratings = reviews.map(review => review.overall_rating);
     return (
       <Wrapper>
         <GlobalFonts />
-        {this.state.reviews.length ? <Ratings ratings={ratings}/> : 'No ratings yet for product'}
-        {this.state.reviews.length ? <Reviews reviews={this.state.reviews}/> : 'No reviews yet for product.'}
+        {reviews.length ? <Ratings ratings={ratings}/> : 'No ratings yet for product'}
+        {reviews.length ? <Reviews topReviews={topReviews} mostRecent={mostRecent}/> : 'No reviews yet for product.'}
       </Wrapper>
     );
   }
