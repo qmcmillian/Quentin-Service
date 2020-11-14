@@ -38,7 +38,7 @@ const insertReviews = async () => {
       let product_id = i;
       let user_id = Math.floor(Math.random() * 100) + 1;
       let overall_rating = Math.floor(Math.random() * 5) + 1;
-      let review_date = faker.date.recent();
+      let review_date = faker.date.past(5, '2020-11-13');;
       let headline = faker.lorem.words();
       let full_text = faker.lorem.paragraph();
       let helpful = Math.floor(Math.random() * 40);
