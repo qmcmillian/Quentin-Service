@@ -4,10 +4,6 @@ import FullStar from '../img/full-star.png';
 import HalfStar from '../img/half-star.png';
 import EmptyStar from '../img/empty-star.png';
 
-// const starImg = {
-//   height: '20px',
-// };
-
 const Stars = ({rating, height}) => {
   return (
     <div>
@@ -16,7 +12,7 @@ const Stars = ({rating, height}) => {
         let typeOfStar;
         if (star >= 0.8) {
           typeOfStar = FullStar;
-        } else if (star > 0.2) {
+        } else if (star >= 0.21) {
           typeOfStar = HalfStar;
         } else {
           typeOfStar = EmptyStar;
