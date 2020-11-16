@@ -28,7 +28,8 @@ const Reviews = ({topReviews, mostRecent}) => {
         <option value="recent">Most recent</option>
       </Select>
       <Headline>Top reviews from the United States</Headline>
-      {(sortBy === 'top' ? topReviews : mostRecent).map(review => <ReviewItem key={review.user_id} review={review}/>)}
+      {/* I'm passing the index as the key because this somehow solved the sorting issue */}
+      {(sortBy === 'top' ? topReviews : mostRecent).map((review, index) => <ReviewItem key={index} review={review}/>)}
     </div>
   );
 };
