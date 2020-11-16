@@ -15,6 +15,21 @@ const Loading = styled.h1`
   font-size: 1.3em;
 `;
 
+const LeaveReview = styled.h3`
+  font-family: 'PT Sans';
+  font-weight: 400;
+  margin-top: 75px;
+`;
+
+const ReviewButton = styled.button`
+  font-family: "PT Sans";
+  background-image: linear-gradient(rgb(244, 226, 181), rgb(240, 195, 80));
+  border: 0;
+  border-radius: 3px;
+  padding: 5px 15px;
+  cursor: pointer;
+`;
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -55,8 +70,16 @@ class App extends Component {
         <Wrapper>
           <GlobalFonts />
           <Ratings ratings={ratings} />
-          <Reviews reviews={unitedStates} />
-          <Reviews reviews={international} />
+          {reviews.length ?
+          <div style={{display: 'block'}}>
+            <Reviews reviews={unitedStates} location={'us'}/>
+            <Reviews reviews={international} location={'intl'}/>
+          </div>
+          :
+          <div>
+            <LeaveReview>Share your thoughts with other customers</LeaveReview>
+            <ReviewButton>Write a customer review</ReviewButton>
+          </div>}
         </Wrapper>
         }
       </div>
