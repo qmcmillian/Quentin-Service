@@ -18,6 +18,44 @@ const Select = styled.select`
   border-radius: 5px;
 `;
 
+const NoReviews = styled.h2`
+  font-family: 'PT Sans';
+  font-size: 1em;
+`;
+
+const Reviews = ({reviews, location}) => {
+  const [sortBy, setSortBy] = useState('top');
+
+  const topReviews = [...reviews].sort((a, b) => (a.helpful < b.helpful) ? 1 : -1);
+  const mostRecent = [...reviews].sort((a, b) => {
+    return (new Date(b.review_date) > new Date(a.review_date)) ? 1 : -1;
+  });
+
+  return (
+    <div style={{marginBottom: '50px'}}>
+      {reviews.length ?
+        <div>
+        {location === 'us' && <Select value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
+          <option value="top">Top reviews</option>
+          <option value="recent">Most recent</option>
+        </Select>}
+        <Headline>Top reviews from {location === 'us' ? 'the United States' : 'other countries'}</Headline>
+        {/* I'm passing the index as the key because this somehow solved the sorting issue */}
+        {(sortBy === 'top' ? topReviews : mostRecent).map((review, index) => <ReviewItem key={index} review={review}/>)}
+      </div>
+      :
+      <NoReviews>
+        No reviews from {location === 'us' ? 'the United States' : 'other countries'}
+      </NoReviews>}
+    </div>
+  );
+};
+
+export default Reviews;
+
+
+/*
+
 const LeaveReview = styled.h3`
   font-family: 'PT Sans';
   font-weight: 400;
@@ -33,34 +71,8 @@ const ReviewButton = styled.button`
   cursor: pointer;
 `;
 
-const Reviews = ({reviews}) => {
-  const [sortBy, setSortBy] = useState('top');
 
-  const topReviews = [...reviews].sort((a, b) => (a.helpful < b.helpful) ? 1 : -1);
-  const mostRecent = [...reviews].sort((a, b) => {
-    return (new Date(b.review_date) > new Date(a.review_date)) ? 1 : -1;
-  });
+<LeaveReview>Share your thoughts with other customers</LeaveReview>
+<ReviewButton>Write a customer review</ReviewButton>
 
-  return (
-    <div>
-      {reviews.length ?
-        <div>
-        <Select value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
-          <option value="top">Top reviews</option>
-          <option value="recent">Most recent</option>
-        </Select>
-        <Headline>Top reviews from the United States</Headline>
-        {/* I'm passing the index as the key because this somehow solved the sorting issue */}
-        {(sortBy === 'top' ? topReviews : mostRecent).map((review, index) => <ReviewItem key={index} review={review}/>)}
-      </div>
-      :
-      <div>
-        <LeaveReview>Share your thoughts with other customers</LeaveReview>}
-        <ReviewButton>Write a customer review</ReviewButton>
-      </div>}
-    </div>
-  );
-};
-
-export default Reviews;
-
+*/
