@@ -41,7 +41,7 @@ const StyledBar = styled.div`
 
 const RatingBar = ({ percentage, stars }) => {
   return (
-    <Container>
+    <Container onMouseOver={(e) => console.log('mouse over', e)}>
       <Link>{stars} star</Link>
       <div style={fullBarStyle}>
         <StyledBar width={percentage}></StyledBar>
