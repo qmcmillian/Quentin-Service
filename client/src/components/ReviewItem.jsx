@@ -14,7 +14,7 @@ const Avatar = styled.div`
 
 const Box = styled.div`
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   height: 32px;
 `;
 
@@ -93,7 +93,7 @@ const ReviewItem = ({review}) => {
       <div style={{marginLeft: '10px', fontFamily: 'PT Sans', fontSize: '.85em'}}>{user_name}</div>
     </Avatar>
     <Box>
-      <Stars rating={overall_rating}/><Headline>{headline}</Headline>
+      <Stars rating={overall_rating} height={'15px'}/><Headline>{headline}</Headline>
     </Box>
     <GrayText>
       Reviewed in {country} on {`${months[month - 1]} ${day}, ${year}`}
