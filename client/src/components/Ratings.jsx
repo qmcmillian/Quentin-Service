@@ -8,7 +8,7 @@ const Headline = styled.h1`
   font-weight: 700;
   width: 300px;
   font-size: 1.7em;
-  margin: 0;
+  margin: 0 0 5px 0;
 `;
 
 const NoReviews = styled.h2`

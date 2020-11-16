@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import axios from 'axios';
 import Ratings from './Ratings.jsx';
 import Reviews from './Reviews.jsx';
+import ProductReviewBtn from './ProductReviewBtn.jsx';
 import GlobalFonts from '../fonts/fonts.js';
 import styled from 'styled-components';
 
@@ -86,7 +87,10 @@ class App extends Component {
         {!this.state.pageLoaded ? <Loading>Loading reviews...</Loading> :
         <Wrapper>
           <GlobalFonts />
-          <Ratings ratings={ratings} handleRatingBarClick={this.handleRatingBarClick}/>
+          <div style={{display: 'block'}}>
+            <Ratings ratings={ratings} handleRatingBarClick={this.handleRatingBarClick}/>
+            <ProductReviewBtn />
+          </div>
           {reviews.length ?
           <div style={{display: 'block'}}>
             <Reviews reviews={unitedStates} location={'us'}/>
