@@ -35,8 +35,19 @@ class App extends Component {
     super(props);
     this.state = {
       reviews: [],
-      pageLoaded: false
+      pageLoaded: false,
+      sortByStars: false,
     };
+
+    this.handleRatingBarClick = this.handleRatingBarClick.bind(this);
+  }
+
+  handleRatingBarClick(numStars) {
+    console.log('inside app sort by stars', numStars);
+    // perhaps we can open up a modal if we have time?
+    // this.setState({
+    //   sortByStars: numStars
+    // });
   }
 
   componentDidMount() {
@@ -51,8 +62,13 @@ class App extends Component {
   }
 
   render() {
-    const reviews = this.state.reviews;
+    let reviews = this.state.reviews;
     console.log(reviews);
+
+    // if (this.state.sortByStars) {
+    //   reviews = reviews.filter(review => review.overall_rating === this.state.sortByStars);
+    // }
+
     const unitedStates = [];
     const international = [];
     for (let review of reviews) {
@@ -63,13 +79,14 @@ class App extends Component {
       }
     }
 
+
     const ratings = reviews.map(review => review.overall_rating);
     return (
       <div>
         {!this.state.pageLoaded ? <Loading>Loading reviews...</Loading> :
         <Wrapper>
           <GlobalFonts />
-          <Ratings ratings={ratings} />
+          <Ratings ratings={ratings} handleRatingBarClick={this.handleRatingBarClick}/>
           {reviews.length ?
           <div style={{display: 'block'}}>
             <Reviews reviews={unitedStates} location={'us'}/>
