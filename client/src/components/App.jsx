@@ -37,6 +37,16 @@ class App extends Component {
 
   render() {
     const reviews = this.state.reviews;
+    console.log(reviews);
+    const unitedStates = [];
+    const international = [];
+    for (let review of reviews) {
+      if (review.country === 'the United States') {
+        unitedStates.push(review);
+      } else {
+        international.push(review);
+      }
+    }
 
     const ratings = reviews.map(review => review.overall_rating);
     return (
@@ -45,7 +55,8 @@ class App extends Component {
         <Wrapper>
           <GlobalFonts />
           <Ratings ratings={ratings} />
-          <Reviews reviews={reviews} />
+          <Reviews reviews={unitedStates} />
+          <Reviews reviews={international} />
         </Wrapper>
         }
       </div>

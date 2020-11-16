@@ -54,8 +54,10 @@ const Reviews = ({reviews}) => {
         {(sortBy === 'top' ? topReviews : mostRecent).map((review, index) => <ReviewItem key={index} review={review}/>)}
       </div>
       :
-      <LeaveReview>Share your thoughts with other customers</LeaveReview>}
-      <ReviewButton>Write a customer review</ReviewButton>
+      <div>
+        <LeaveReview>Share your thoughts with other customers</LeaveReview>}
+        <ReviewButton>Write a customer review</ReviewButton>
+      </div>}
     </div>
   );
 };
