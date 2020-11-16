@@ -11,6 +11,13 @@ const Headline = styled.h1`
   margin: 0;
 `;
 
+const NoReviews = styled.h2`
+  font-family: 'PT Sans';
+  font-weight: 700;
+  font-size: 1.2em;
+  margin: 5px 0;
+`;
+
 const GrayText = styled.p`
   font-family: 'PT Sans';
   font-size: .9em;
@@ -38,17 +45,19 @@ const Ratings = ({ratings}) => {
 
   percentages.reverse().pop();
 
-  console.log(totals);
-  console.log(percentages);
-
   return (
     <div style={{marginRight: '100px', marginLeft: '10px'}}>
       <Headline>Customer reviews</Headline>
-      <div style={{display: 'flex', alignItems: 'flex-end'}}>
-        <Stars rating={globalAverage} height={'20px'}/>
-        <div style={{fontFamily: 'PT Sans', fontSize: '1.2em', marginLeft: '10px'}}>{globalAverage} out of 5</div>
-      </div>
-      <GrayText>{len} global rating{len > 1 && 's'}</GrayText>
+      {ratings.length ?
+        <div>
+          <div style={{display: 'flex', alignItems: 'flex-end'}}>
+            <Stars rating={globalAverage} height={'20px'}/>
+            <div style={{fontFamily: 'PT Sans', fontSize: '1.2em', marginLeft: '10px'}}>{globalAverage} out of 5</div>
+          </div>
+          <GrayText>{len} global rating{len > 1 && 's'}</GrayText>
+        </div>
+        :
+        <NoReviews>There are no customer reviews yet.</NoReviews>}
       {percentages.map((percentage, index) => <RatingBar key={index} percentage={percentage} stars={5 - index}/>)}
     </div>
   );
