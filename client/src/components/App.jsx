@@ -43,8 +43,8 @@ class App extends Component {
     return (
       <Wrapper>
         <GlobalFonts />
-        {reviews.length ? <Ratings ratings={ratings}/> : 'No ratings yet for product'}
-        {reviews.length ? <Reviews topReviews={topReviews} mostRecent={mostRecent}/> : 'No reviews yet for product.'}
+        {reviews.length ? <Ratings ratings={ratings} /> : 'No ratings yet for product'}
+        {reviews.length ? <Reviews topReviews={topReviews} mostRecent={mostRecent} /> : 'No reviews yet for product.'}
       </Wrapper>
     );
   }

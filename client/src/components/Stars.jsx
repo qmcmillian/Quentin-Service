@@ -1,22 +1,31 @@
 import React from 'react';
 import styled from 'styled-components';
-import { FaStar } from 'react-icons/fa';
+import FullStar from '../img/full-star.png';
+import HalfStar from '../img/half-star.png';
+import EmptyStar from '../img/empty-star.png';
 
-// Star unicode:
-// \u2605
-
-// const starStyles = {
-//   color: '#FFA41C'
+// const starImg = {
+//   height: '20px',
 // };
 
-const Stars = ({rating}) => {
+const Stars = ({rating, height}) => {
   return (
     <div>
-      {[...Array(5)].map((star, index) => {
-        return <FaStar size={20} color={index + 1 <= rating ? '#FFA41C' : '#f2f2f2'}/>;
+      {[...Array(5)].map((item, index) => {
+        let star = rating - index;
+        let typeOfStar;
+        if (star >= 0.8) {
+          typeOfStar = FullStar;
+        } else if (star > 0.2) {
+          typeOfStar = HalfStar;
+        } else {
+          typeOfStar = EmptyStar;
+        }
+        return <img src={typeOfStar} style={{height: height}}></img>
       })}
     </div>
   )
 };
 
 export default Stars;
+

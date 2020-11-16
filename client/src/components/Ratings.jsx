@@ -45,7 +45,7 @@ const Ratings = ({ratings}) => {
     <div style={{marginRight: '100px', marginLeft: '10px'}}>
       <Headline>Customer reviews</Headline>
       <div style={{display: 'flex', alignItems: 'flex-end'}}>
-        <Stars rating={globalAverage}/>
+        <Stars rating={globalAverage} height={'20px'}/>
         <div style={{fontFamily: 'PT Sans', fontSize: '1.2em', marginLeft: '10px'}}>{globalAverage} out of 5</div>
       </div>
       <GrayText>{len} global rating{len > 1 && 's'}</GrayText>
