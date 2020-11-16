@@ -25,7 +25,7 @@ const GrayText = styled.p`
   margin: 8px 0;
 `;
 
-const Ratings = ({ratings}) => {
+const Ratings = ({ratings, handleRatingBarClick}) => {
   const len = ratings.length;
   const totals = {};
   let sumTotal = 0;
@@ -58,7 +58,7 @@ const Ratings = ({ratings}) => {
         </div>
         :
         <NoReviews>There are no customer reviews yet.</NoReviews>}
-      {percentages.map((percentage, index) => <RatingBar key={index} percentage={percentage} stars={5 - index}/>)}
+      {percentages.map((percentage, index) => <RatingBar key={index} percentage={percentage} stars={5 - index} handleRatingBarClick={handleRatingBarClick}/>)}
     </div>
   );
 };
