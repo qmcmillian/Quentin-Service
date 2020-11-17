@@ -8,7 +8,7 @@ const Container = styled.div`
   height: 35px;
 `;
 
-const Link = styled.p`
+const NumberOfStars = styled.p`
   color: ${props => props.hover ? '#C7511F' : '#007185'};
   font-family: 'PT Sans';
   margin-right: 3px;
@@ -17,7 +17,7 @@ const Link = styled.p`
   text-decoration: ${props => props.hover ? 'underline' : 'none'};
 `;
 
-const Link2 = styled.p`
+const Percentage = styled.p`
   color: ${props => props.hover ? '#C7511F' : '#007185'};
   font-family: 'PT Sans';
   margin-left: 5px;
@@ -59,11 +59,11 @@ const RatingBar = ({ percentage, stars, handleRatingBarClick }) => {
 
   return (
     <Container onMouseEnter={() => setHoverStyle(true)} onMouseLeave={() => setHoverStyle(false)} onClick={() => handleRatingBarClick(stars)}>
-      <Link hover={hoverStyle}>{stars} star</Link>
+      <NumberOfStars hover={hoverStyle}>{stars} star</NumberOfStars>
       <div style={hoverStyle ? hoverBarStyle : fullBarStyle}>
         <StyledBar hover={hoverStyle} width={percentage}></StyledBar>
       </div>
-      <Link2 hover={hoverStyle}>{percentage}%</Link2>
+      <Percentage hover={hoverStyle}>{percentage}%</Percentage>
     </Container>
   );
 };

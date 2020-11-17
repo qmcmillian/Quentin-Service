@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import Modal from './Modal.jsx';
+import BlueText from './BlueText.jsx';
 
 const Headline = styled.h1`
   font-family: 'PT Sans';
@@ -15,16 +16,6 @@ const imgStyle = {
   marginRight: '5px',
   objectFit: 'cover'
 };
-
-const SeeAllImages = styled.p`
-  color: ${props => props.hover ? '#C7511F' : '#007185'};
-  font-family: 'PT Sans';
-  cursor: ${props => props.hover ? 'pointer' : 'none'};
-  text-decoration: ${props => props.hover ? 'underline' : 'none'};
-  margin-top: 5px;
-  margin-bottom: 20px;
-  font-size: .9em;
-`;
 
 const NoImages = styled.h1`
   font-family: 'PT Sans';
@@ -48,7 +39,7 @@ const CustomerImages = ({imageUrls}) => {
           return <img src={image} style={imgStyle}/>
         }
       })}
-      <SeeAllImages hover={onHover} onMouseEnter={() => setOnHover(true)} onMouseLeave={() => setOnHover(false)} onClick={() => setIsOpen(true)}>See all customer images</SeeAllImages>
+      <BlueText onClick={() => setIsOpen(true)}>See all customer images</BlueText>
       <Modal imageUrls={imageUrls} open={isOpen} onClose={() => setIsOpen(false)}></Modal>
       </div>}
     </div>
