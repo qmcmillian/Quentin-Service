@@ -46,11 +46,9 @@ class App extends Component {
   }
 
   handleRatingBarClick(numStars) {
-    console.log('inside app sort by stars', numStars);
-    // perhaps we can open up a modal if we have time?
-    // this.setState({
-    //   sortByStars: numStars
-    // });
+    this.setState({
+      sortByStars: numStars
+    });
   }
 
   componentDidMount() {
@@ -67,10 +65,6 @@ class App extends Component {
   render() {
     let reviews = this.state.reviews;
     console.log(reviews);
-
-    // if (this.state.sortByStars) {
-    //   reviews = reviews.filter(review => review.overall_rating === this.state.sortByStars);
-    // }
 
     const unitedStates = [];
     const international = [];
@@ -102,7 +96,7 @@ class App extends Component {
           {reviews.length ?
           <div style={{display: 'block'}}>
             <CustomerImages imageUrls={imageUrls}/>
-            <DomesticReviews domesticReviews={unitedStates}/>
+            <DomesticReviews domesticReviews={unitedStates} sortByStars={this.state.sortByStars}/>
             <IntlReviews intlReviews={international}/>
           </div>
           :
