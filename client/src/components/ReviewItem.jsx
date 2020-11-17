@@ -79,12 +79,34 @@ const Button = styled.button`
   margin-right: 18px;
 `;
 
+// const highlight = {
+//   backgroundColor: 'yellow'
+// };
+
+const Highlight = styled.span`
+  background-color: #FFEBB7;
+`;
+
 const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
-const ReviewItem = ({review}) => {
+const ReviewItem = ({review, keyword}) => {
   const {avatar, country, full_text, headline, overall_rating, review_date, user_name, verified_purchase, helpful} = review;
 
   let [year, month, day] = review_date.split('T')[0].split('-');
+
+  const highlightText = (text, keyword) => {
+    if (!keyword) {
+      return text;
+    }
+    // I want to understand exactly how this works, specifically reduce
+    return (<span>
+      { text.split(keyword)
+        .reduce((acc, current) => {
+          return acc.concat(<Highlight key={keyword + current}>{ keyword }</Highlight>, current);
+        }, [])
+      }
+    </span>);
+  };
 
   return (
   <Container>
@@ -99,7 +121,8 @@ const ReviewItem = ({review}) => {
       Reviewed in {country} on {`${months[month - 1]} ${day}, ${year}`}
     </GrayText>
     {verified_purchase === 1 && <Verified>Verified Purchase</Verified>}
-    <ReviewText>{full_text}</ReviewText>
+    {/* add span component for highlighting */}
+    <ReviewText>{highlightText(full_text, keyword)}</ReviewText>
     <GrayText>
       {`${helpful} people found this helpful`}
     </GrayText>
@@ -113,3 +136,19 @@ const ReviewItem = ({review}) => {
 };
 
 export default ReviewItem;
+
+/*
+
+/**
+ * Find and highlight relevant keywords within a block of text
+ * @param  {string} label - The text to parse
+ * @param  {string} value - The search keyword to highlight
+ * @return {object} A JSX object containing an array of alternating strings and JSX
+
+
+
+highlightText('Lorem ipsum dolor sit amet', 'dolor');
+// <span>Lorem ipsum <b>dolor</b> sit amet</span>
+
+
+*/

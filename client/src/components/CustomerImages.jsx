@@ -22,7 +22,7 @@ const SeeAllImages = styled.p`
   cursor: ${props => props.hover ? 'pointer' : 'none'};
   text-decoration: ${props => props.hover ? 'underline' : 'none'};
   margin-top: 5px;
-  margin-bottom: 0;
+  margin-bottom: 20px;
   font-size: .9em;
 `;
 
