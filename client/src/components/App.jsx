@@ -6,7 +6,6 @@ import DomesticReviews from './DomesticReviews.jsx';
 import IntlReviews from './IntlReviews.jsx';
 import CustomerImages from './CustomerImages.jsx';
 import ProductReviewBtn from './ProductReviewBtn.jsx';
-import Keywords from './Keywords.jsx';
 import GlobalFonts from '../fonts/fonts.js';
 import styled from 'styled-components';
 
@@ -103,7 +102,6 @@ class App extends Component {
           {reviews.length ?
           <div style={{display: 'block'}}>
             <CustomerImages imageUrls={imageUrls}/>
-            <Keywords />
             <DomesticReviews domesticReviews={unitedStates}/>
             <IntlReviews intlReviews={international}/>
           </div>

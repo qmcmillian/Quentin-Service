@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ReviewItem from './ReviewItem.jsx';
+import Keywords from './Keywords.jsx';
 import styled from 'styled-components';
 
 const Headline = styled.h1`
@@ -24,6 +25,16 @@ const NoReviews = styled.h2`
   font-size: 1em;
 `;
 
+const ClearFilter = styled.p`
+  color: ${props => props.hover ? '#C7511F' : '#007185'};
+  font-family: 'PT Sans';
+  cursor: ${props => props.hover ? 'pointer' : 'none'};
+  text-decoration: ${props => props.hover ? 'underline' : 'none'};
+  margin-top: 5px;
+  margin-bottom: 20px;
+  font-size: .9em;
+`;
+
 class DomesticReviews extends Component {
   constructor(props) {
     super(props);
@@ -37,6 +48,8 @@ class DomesticReviews extends Component {
     };
 
     this.toggleSelectFilter = this.toggleSelectFilter.bind(this);
+    this.setKeywordFilter = this.setKeywordFilter.bind(this);
+    this.clearFilter = this.clearFilter.bind(this);
   }
 
   componentWillMount() {
@@ -56,12 +69,38 @@ class DomesticReviews extends Component {
     });
   }
 
+  setKeywordFilter(keyword) {
+    console.log('inside setKeywordFilter', keyword)
+    this.setState({
+      filterByKeyword: keyword
+    });
+  }
+
+  clearFilter() {
+    this.setState({
+      filterByKeyword: false,
+      sortByStars: false
+    });
+  }
+
   render() {
-    let {reviews, topReviews, mostRecent, filterBySelect} = this.state;
+    let {reviews, topReviews, mostRecent, filterBySelect, filterByKeyword, sortByStars} = this.state;
     let filteredReviews = filterBySelect === 'top' ? topReviews : mostRecent;
+
+    if (filterByKeyword) {
+      // filter reviews that include keyword
+      // later, add highlighting for the keywords
+      console.log('there is a keyword', filterByKeyword);
+      filteredReviews = filteredReviews.filter(review => {
+        console.log(review.full_text.includes(filterByKeyword))
+        return review.full_text.includes(filterByKeyword);
+      });
+    }
+
 
     return (
       <div style={{marginBottom: '50px'}}>
+        <Keywords setKeywordFilter={this.setKeywordFilter}/>
         {reviews.length ?
           <div>
           <Select value={filterBySelect} onChange={(e) => this.toggleSelectFilter(e.target.value)}>
@@ -69,6 +108,8 @@ class DomesticReviews extends Component {
             <option value="recent">Most recent</option>
           </Select>
           <Headline>Top reviews from the United States</Headline>
+          {/* I'll need to refactor ClearFilter into its own functional component file with hooks that can be reused across the webpage */}
+          {(filterByKeyword || sortByStars) && <ClearFilter onClick={this.clearFilter}>Clear filter</ClearFilter>}
           {filteredReviews.map((review, index) => <ReviewItem key={index} review={review}/>)}
         </div>
         :
