@@ -61,7 +61,7 @@ class Keywords extends React.Component {
     return (
       <div>
         <Headline>Read reviews that mention</Headline>
-        <div style={{display: 'flex', flexWrap: 'wrap'}}>
+        <div style={{display: 'flex', flexWrap: 'wrap', maxWidth: '585px', minWidth: '450px'}}>
           {this.state.keywords.map((keyword, index) => <Keyword key={index}>{keyword.text}</Keyword>)}
         </div>
       </div>

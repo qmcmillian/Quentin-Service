@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
 import Ratings from './Ratings.jsx';
-import Reviews from './Reviews.jsx';
+import DomesticReviews from './DomesticReviews.jsx';
 import IntlReviews from './IntlReviews.jsx';
 import CustomerImages from './CustomerImages.jsx';
 import ProductReviewBtn from './ProductReviewBtn.jsx';
@@ -104,7 +104,7 @@ class App extends Component {
           <div style={{display: 'block'}}>
             <CustomerImages imageUrls={imageUrls}/>
             <Keywords />
-            <Reviews reviews={unitedStates}/>
+            <DomesticReviews domesticReviews={unitedStates}/>
             <IntlReviews intlReviews={international}/>
           </div>
           :
