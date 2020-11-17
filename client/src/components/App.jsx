@@ -3,8 +3,10 @@ import ReactDOM from 'react-dom';
 import axios from 'axios';
 import Ratings from './Ratings.jsx';
 import Reviews from './Reviews.jsx';
+import IntlReviews from './IntlReviews.jsx';
 import CustomerImages from './CustomerImages.jsx';
 import ProductReviewBtn from './ProductReviewBtn.jsx';
+import Keywords from './Keywords.jsx';
 import GlobalFonts from '../fonts/fonts.js';
 import styled from 'styled-components';
 
@@ -61,24 +63,6 @@ class App extends Component {
           pageLoaded: true
         });
       });
-
-    // Keyword extraction API
-    var myHeaders = new Headers();
-    myHeaders.append("apikey", "EOqzyV2gQYP6t8uOW7GGCpKB0zvqkFIO");
-
-    var raw = "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, comes from a line in section 1.10.32.";
-
-    var requestOptions = {
-      method: 'POST',
-      redirect: 'follow',
-      headers: myHeaders,
-      body: raw
-    };
-
-    fetch("https://api.promptapi.com/keyword", requestOptions)
-      .then(response => response.text())
-      .then(result => console.log(result))
-      .catch(error => console.log('error', error));
   }
 
   render() {
@@ -106,7 +90,6 @@ class App extends Component {
         imageUrls.push(review.product_photo);
       }
     });
-    console.log('IMAGES', imageUrls);
 
     return (
       <div>
@@ -120,8 +103,9 @@ class App extends Component {
           {reviews.length ?
           <div style={{display: 'block'}}>
             <CustomerImages imageUrls={imageUrls}/>
-            <Reviews reviews={unitedStates} location={'us'}/>
-            <Reviews reviews={international} location={'intl'}/>
+            <Keywords />
+            <Reviews reviews={unitedStates}/>
+            <IntlReviews intlReviews={international}/>
           </div>
           :
           <div>

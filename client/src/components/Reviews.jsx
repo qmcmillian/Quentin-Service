@@ -24,7 +24,8 @@ const NoReviews = styled.h2`
   font-size: 1em;
 `;
 
-const Reviews = ({reviews, location}) => {
+const Reviews = ({reviews}) => {
+  const location = 'us';
   const [sortBy, setSortBy] = useState('top');
 
   const topReviews = [...reviews].sort((a, b) => (a.helpful < b.helpful) ? 1 : -1);
@@ -54,26 +55,3 @@ const Reviews = ({reviews, location}) => {
 
 export default Reviews;
 
-
-/*
-
-const LeaveReview = styled.h3`
-  font-family: 'PT Sans';
-  font-weight: 400;
-  margin-top: 75px;
-`;
-
-const ReviewButton = styled.button`
-  font-family: "PT Sans";
-  background-image: linear-gradient(rgb(244, 226, 181), rgb(240, 195, 80));
-  border: 0;
-  border-radius: 3px;
-  padding: 5px 15px;
-  cursor: pointer;
-`;
-
-
-<LeaveReview>Share your thoughts with other customers</LeaveReview>
-<ReviewButton>Write a customer review</ReviewButton>
-
-*/
