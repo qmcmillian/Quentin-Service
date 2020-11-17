@@ -15,6 +15,7 @@ const Select = styled.select`
   background-color: #f1f2f2;
   padding: 1px 40px 1px 3px;
   margin-bottom: 22px;
+  margin-top: 30px;
   border-radius: 5px;
 `;
 

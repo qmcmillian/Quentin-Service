@@ -28,6 +28,7 @@ CREATE TABLE reviews (
   full_text VARCHAR(1024) NOT NULL,
   helpful INT NOT NULL,
   verified_purchase TINYINT(1),
+  product_photo VARCHAR(512),
   PRIMARY KEY (id)
 );
 

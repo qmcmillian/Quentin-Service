@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import axios from 'axios';
 import Ratings from './Ratings.jsx';
 import Reviews from './Reviews.jsx';
+import CustomerImages from './CustomerImages.jsx';
 import ProductReviewBtn from './ProductReviewBtn.jsx';
 import GlobalFonts from '../fonts/fonts.js';
 import styled from 'styled-components';
@@ -37,7 +38,7 @@ class App extends Component {
     this.state = {
       reviews: [],
       pageLoaded: false,
-      sortByStars: false,
+      sortByStars: false
     };
 
     this.handleRatingBarClick = this.handleRatingBarClick.bind(this);
@@ -80,8 +81,15 @@ class App extends Component {
       }
     }
 
-
     const ratings = reviews.map(review => review.overall_rating);
+    const imageUrls = [];
+    reviews.forEach(review => {
+      if (review.product_photo) {
+        imageUrls.push(review.product_photo);
+      }
+    });
+    console.log('IMAGES', imageUrls);
+
     return (
       <div>
         {!this.state.pageLoaded ? <Loading>Loading reviews...</Loading> :
@@ -93,6 +101,7 @@ class App extends Component {
           </div>
           {reviews.length ?
           <div style={{display: 'block'}}>
+            <CustomerImages imageUrls={imageUrls}/>
             <Reviews reviews={unitedStates} location={'us'}/>
             <Reviews reviews={international} location={'intl'}/>
           </div>
