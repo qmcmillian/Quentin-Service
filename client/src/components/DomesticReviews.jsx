@@ -35,6 +35,7 @@ const ClearFilter = styled.p`
   font-size: .9em;
 `;
 
+
 class DomesticReviews extends Component {
   constructor(props) {
     super(props);
@@ -88,19 +89,13 @@ class DomesticReviews extends Component {
     let filteredReviews = filterBySelect === 'top' ? topReviews : mostRecent;
 
     if (filterByKeyword) {
-      // filter reviews that include keyword
-      // later, add highlighting for the keywords
-      console.log('there is a keyword', filterByKeyword);
-      filteredReviews = filteredReviews.filter(review => {
-        console.log(review.full_text.includes(filterByKeyword))
-        return review.full_text.includes(filterByKeyword);
-      });
+      filteredReviews = filteredReviews.filter(review => review.full_text.includes(filterByKeyword));
     }
 
 
     return (
       <div style={{marginBottom: '50px'}}>
-        <Keywords setKeywordFilter={this.setKeywordFilter}/>
+        <Keywords setKeywordFilter={this.setKeywordFilter} domesticReviews={reviews}/>
         {reviews.length ?
           <div>
           <Select value={filterBySelect} onChange={(e) => this.toggleSelectFilter(e.target.value)}>
@@ -110,7 +105,7 @@ class DomesticReviews extends Component {
           <Headline>Top reviews from the United States</Headline>
           {/* I'll need to refactor ClearFilter into its own functional component file with hooks that can be reused across the webpage */}
           {(filterByKeyword || sortByStars) && <ClearFilter onClick={this.clearFilter}>Clear filter</ClearFilter>}
-          {filteredReviews.map((review, index) => <ReviewItem key={index} review={review}/>)}
+          {filteredReviews.map((review, index) => <ReviewItem key={index} review={review} keyword={filterByKeyword}/>)}
         </div>
         :
         <NoReviews>No reviews from the United States</NoReviews>}
