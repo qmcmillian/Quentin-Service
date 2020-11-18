@@ -4,21 +4,20 @@ import styled from 'styled-components';
 const Headline = styled.h1`
   font-family: 'PT Sans';
   font-size: 1.3em;
-  margin-top: 0;
-  margin-bottom: 20px;
+  margin: 20px 0;
 `;
 
 const Keyword = styled.div`
   font-family: 'PT Sans';
   font-size: .9em;
   height: 20px;
-  background-color: #D7E8EA;
+  background-color: ${props => props.selected ? '#00464F' : '#D7E8EA'};
   padding: 0px 14px 10px 14px;
   line-height: 29px;
   margin: 0px 10px 14px 0px;
   border-bottom: solid 1px #969696;
   display: inline-block;
-  color: #111111;
+  color: ${props => props.selected ? '#FFF' : '#111111'};
 `;
 
 
@@ -26,17 +25,33 @@ class Keywords extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      keywords: [{text: "Lorem Ipsum", score: 0.880351}, {text: "piece of classical Latin literature", score: 0.78271}, {text: "Richard McClintock", score: 0.759316}, {text: "popular belief", score: 0.752326}, {text: "Hampden-Sydney College", score: 0.68642}, {text: "obscure Latin words", score: 0.667476}, {text: "Latin professor", score: 0.637776}, {text: "Lorem Ipsum passage", score: 0.631327}, {text: "first line of Lorem Ipsum", score: 0.618045}, {text: "classical literature", score: 0.602034}, {text: "book", score: 0.56998}, {text: "treatise", score: 0.539041}, {text: 'et', score: 0.456789}]
+      keywords: [{text: "Lorem Ipsum", score: 0.880351}, {text: "piece of classical Latin literature", score: 0.78271}, {text: "Richard McClintock", score: 0.759316}, {text: "popular belief", score: 0.752326}, {text: "Hampden-Sydney College", score: 0.68642}, {text: "obscure Latin words", score: 0.667476}, {text: "Latin professor", score: 0.637776}, {text: "Lorem Ipsum passage", score: 0.631327}, {text: "first line of Lorem Ipsum", score: 0.618045}, {text: "classical literature", score: 0.602034}, {text: "book", score: 0.56998}, {text: "treatise", score: 0.539041}, {text: 'et', score: 0.456789}],
+      selectedKeywordIndex: null,
     }
+
+    this.handleKeywordBtnClick = this.handleKeywordBtnClick.bind(this);
+  }
+
+  handleKeywordBtnClick(index) {
+    const setKeyword = this.state.selectedKeywordIndex !== index ? index : null;
+    this.setState({
+      selectedKeywordIndex: setKeyword
+    });
+
+    this.props.setKeywordFilter(this.state.keywords[index].text);
   }
 
   componentDidMount() {
+    let raw = '';
+    this.props.domesticReviews.forEach(review => raw += review.full_text);
+
     // Keyword extraction API
     var myHeaders = new Headers();
+    // Move this API key into a .env, and .gitignore the file
+    // install dotenv?
     myHeaders.append("apikey", "EOqzyV2gQYP6t8uOW7GGCpKB0zvqkFIO");
 
-    // this.props.domesticReviews.map(review => review.full_text).join('');
-    var raw = "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, comes from a line in section 1.10.32.";
+    // var raw = "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, comes from a line in section 1.10.32.";
 
     var requestOptions = {
       method: 'POST',
@@ -45,13 +60,17 @@ class Keywords extends React.Component {
       body: raw
     };
 
+      // apparently, the review text can't be in Latin
+      // result
+      // {message: "Unsupported language: la"}
+      // message: "Unsupported language: la"
     // fetch("https://api.promptapi.com/keyword", requestOptions)
     //   .then(response => response.json())
     //   .then(data => {
     //     console.log('result', data);
     //     console.log('result result', data.result);
     //     this.setState({
-    //       keywords: data.result
+    //       keywords: data.result.slice(0, 8)
     //     })
     //   })
     //   .catch(error => console.log('error', error));
@@ -63,7 +82,7 @@ class Keywords extends React.Component {
       <div>
         <Headline>Read reviews that mention</Headline>
         <div style={{display: 'flex', flexWrap: 'wrap', maxWidth: '585px', minWidth: '450px'}}>
-        {this.state.keywords.map((keyword, index) => <Keyword key={index} onClick={() => this.props.setKeywordFilter(keyword.text)}>{keyword.text}</Keyword>)}
+        {this.state.keywords.map((keyword, index) => <Keyword selected={this.state.selectedKeywordIndex === index} key={index} onClick={() => this.handleKeywordBtnClick(index)}>{keyword.text}</Keyword>)}
         </div>
       </div>
     )

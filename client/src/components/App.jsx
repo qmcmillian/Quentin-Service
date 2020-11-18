@@ -46,8 +46,9 @@ class App extends Component {
   }
 
   handleRatingBarClick(numStars) {
+    const setStars = this.state.sortByStars !== numStars ? numStars : false;
     this.setState({
-      sortByStars: numStars
+      sortByStars: setStars
     });
   }
 
