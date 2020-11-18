@@ -128,7 +128,7 @@ class DomesticReviews extends Component {
 
     return (
       <div style={{marginBottom: '50px'}}>
-        <Keywords setKeywordFilter={this.setKeywordFilter} domesticReviews={reviews}/>
+        <Keywords setKeywordFilter={this.setKeywordFilter} domesticReviews={reviews} filterByKeyword={filterByKeyword}/>
         {reviews.length ?
           <div>
           <Select value={filterBySelect} onChange={(e) => this.toggleSelectFilter(e.target.value)}>

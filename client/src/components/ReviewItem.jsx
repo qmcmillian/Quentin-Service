@@ -123,7 +123,7 @@ const ReviewItem = ({review, keyword}) => {
     {verified_purchase === 1 && <Verified>Verified Purchase</Verified>}
     <ReviewText>{highlightText(full_text, keyword)}</ReviewText>
     <GrayText>
-      {`${helpful} people found this helpful`}
+      {helpful !== 1 ? `${helpful} people found this helpful` : 'One person found this helpful'}
     </GrayText>
     <div style={{display: 'inline-flex', alignItems: 'center', width: '300px', height: '50px'}}>
       <Button>Helpful</Button>

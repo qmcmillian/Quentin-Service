@@ -56,7 +56,7 @@ const insertReviews = async () => {
       let user_id = Math.floor(Math.random() * 100) + 1;
       let overall_rating = merged[Math.floor(Math.random() * 100)];
       let review_date = faker.date.past(5, '2020-11-13');;
-      let headline = faker.random.words(Math.floor(Math.random() * 5) + 1);
+      let headline = faker.random.words(Math.floor(Math.random() * 4) + 2);
       let full_text = faker.random.words(Math.floor(Math.random() * (45 - 22) ) + 22);
       let helpful = Math.floor(Math.random() * 40);
       let verified_purchase = (Math.random() <= 0.7) ? 1 : 0;

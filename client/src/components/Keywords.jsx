@@ -25,8 +25,9 @@ class Keywords extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      keywords: [{text: "Lorem Ipsum", score: 0.880351}, {text: "piece of classical Latin literature", score: 0.78271}, {text: "Richard McClintock", score: 0.759316}, {text: "popular belief", score: 0.752326}, {text: "Hampden-Sydney College", score: 0.68642}, {text: "obscure Latin words", score: 0.667476}, {text: "Latin professor", score: 0.637776}, {text: "Lorem Ipsum passage", score: 0.631327}, {text: "first line of Lorem Ipsum", score: 0.618045}, {text: "classical literature", score: 0.602034}, {text: "book", score: 0.56998}, {text: "treatise", score: 0.539041}, {text: 'et', score: 0.456789}],
-      selectedKeywordIndex: null,
+      // sample data
+      keywords: [{text: "Lorem Ipsum", score: 0.880351}, {text: "piece of classical Latin literature", score: 0.78271}, {text: "Richard McClintock", score: 0.759316}, {text: "popular belief", score: 0.752326}, {text: "Hampden-Sydney College", score: 0.68642}, {text: "obscure Latin words", score: 0.667476}, {text: "Latin professor", score: 0.637776}, {text: "Lorem Ipsum passage", score: 0.631327}, {text: "first line of Lorem Ipsum", score: 0.618045}, {text: "classical literature", score: 0.602034}, {text: "book", score: 0.56998}, {text: "treatise", score: 0.539041}, {text: 'a', score: 0.456789}, {text: 'S', score: 0.246789}],
+      selectedKeywordIndex: null
     }
 
     this.handleKeywordBtnClick = this.handleKeywordBtnClick.bind(this);
@@ -41,6 +42,15 @@ class Keywords extends React.Component {
     this.props.setKeywordFilter(this.state.keywords[index].text);
   }
 
+  // instead of setting props to state within the constructor
+  componentWillReceiveProps(nextProps) {
+    if (!nextProps.filterByKeyword) {
+      this.setState({
+        selectedKeywordIndex: null
+      });
+    }
+  }
+
   componentDidMount() {
     let raw = '';
     this.props.domesticReviews.forEach(review => raw += review.full_text);
@@ -51,8 +61,6 @@ class Keywords extends React.Component {
     // install dotenv?
     myHeaders.append("apikey", "EOqzyV2gQYP6t8uOW7GGCpKB0zvqkFIO");
 
-    // var raw = "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, comes from a line in section 1.10.32.";
-
     var requestOptions = {
       method: 'POST',
       redirect: 'follow',
@@ -60,10 +68,6 @@ class Keywords extends React.Component {
       body: raw
     };
 
-      // apparently, the review text can't be in Latin
-      // result
-      // {message: "Unsupported language: la"}
-      // message: "Unsupported language: la"
     // fetch("https://api.promptapi.com/keyword", requestOptions)
     //   .then(response => response.json())
     //   .then(data => {
@@ -77,7 +81,6 @@ class Keywords extends React.Component {
   }
 
   render() {
-    console.log('state', this.state);
     return (
       <div>
         <Headline>Read reviews that mention</Headline>

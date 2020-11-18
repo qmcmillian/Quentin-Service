@@ -65,7 +65,6 @@ class App extends Component {
 
   render() {
     let reviews = this.state.reviews;
-    console.log(reviews);
 
     const unitedStates = [];
     const international = [];
