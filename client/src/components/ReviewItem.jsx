@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Stars from './Stars.jsx';
 
 const Container = styled.div`
-  margin-bottom: 20px;
+  margin: 20px 0;
 `;
 
 const Avatar = styled.div`
@@ -111,7 +111,7 @@ const ReviewItem = ({review, keyword}) => {
   return (
   <Container>
     <Avatar>
-      <img src={avatar} style={{borderRadius: '100%', width: '30px', height: 'auto'}}/>
+      <img src={avatar} style={{borderRadius: '100%', width: '30px', height: '30px', objectFit: 'cover'}}/>
       <div style={{marginLeft: '10px', fontFamily: 'PT Sans', fontSize: '.85em'}}>{user_name}</div>
     </Avatar>
     <Box>
@@ -121,10 +121,9 @@ const ReviewItem = ({review, keyword}) => {
       Reviewed in {country} on {`${months[month - 1]} ${day}, ${year}`}
     </GrayText>
     {verified_purchase === 1 && <Verified>Verified Purchase</Verified>}
-    {/* add span component for highlighting */}
     <ReviewText>{highlightText(full_text, keyword)}</ReviewText>
     <GrayText>
-      {`${helpful} people found this helpful`}
+      {helpful !== 1 ? `${helpful} people found this helpful` : 'One person found this helpful'}
     </GrayText>
     <div style={{display: 'inline-flex', alignItems: 'center', width: '300px', height: '50px'}}>
       <Button>Helpful</Button>
@@ -137,18 +136,3 @@ const ReviewItem = ({review, keyword}) => {
 
 export default ReviewItem;
 
-/*
-
-/**
- * Find and highlight relevant keywords within a block of text
- * @param  {string} label - The text to parse
- * @param  {string} value - The search keyword to highlight
- * @return {object} A JSX object containing an array of alternating strings and JSX
-
-
-
-highlightText('Lorem ipsum dolor sit amet', 'dolor');
-// <span>Lorem ipsum <b>dolor</b> sit amet</span>
-
-
-*/

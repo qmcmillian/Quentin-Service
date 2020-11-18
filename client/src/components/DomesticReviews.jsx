@@ -7,8 +7,7 @@ import styled from 'styled-components';
 const Headline = styled.h1`
   font-family: 'PT Sans';
   font-size: 1.3em;
-  margin-top: 0;
-  margin-bottom: 20px;
+  margin: 0;
 `;
 
 const Select = styled.select`
@@ -24,6 +23,7 @@ const Select = styled.select`
 const H2 = styled.h2`
   font-family: 'PT Sans';
   font-size: 1em;
+  margin: 0 10px 0 0;
 `;
 
 
@@ -44,6 +44,7 @@ class DomesticReviews extends Component {
     this.toggleSelectFilter = this.toggleSelectFilter.bind(this);
     this.setKeywordFilter = this.setKeywordFilter.bind(this);
     this.clearFilter = this.clearFilter.bind(this);
+    this.showFilterText = this.showFilterText.bind(this);
   }
 
   componentWillMount() {
@@ -64,16 +65,45 @@ class DomesticReviews extends Component {
   }
 
   setKeywordFilter(keyword) {
-    this.setState({
-      filterByKeyword: keyword
-    });
+    if (keyword === this.state.filterByKeyword) {
+      this.clearFilter();
+    } else {
+      this.setState({
+        filterByKeyword: keyword
+      });
+    }
   }
 
-  clearFilter() {
-    this.setState({
-      filterByKeyword: false,
-      sortByStars: false
-    });
+  clearFilter(clearAll) {
+    if (clearAll) {
+      this.setState({
+        filterByKeyword: false,
+        sortByStars: false
+      });
+    } else {
+      this.setState({
+        filterByKeyword: false
+      });
+    }
+  }
+
+  showFilterText(numReviews) {
+    let filterText = `Showing ${numReviews} review${numReviews !== 1 ? 's' : ''} with `;
+
+    let additionalText = '';
+    if (this.state.filterByKeyword) {
+      additionalText += `"${this.state.filterByKeyword}"`;
+    }
+
+    if (additionalText.length && this.state.sortByStars) {
+      additionalText += ' and ';
+    }
+
+    if (this.state.sortByStars) {
+      additionalText += `${this.state.sortByStars} stars`;
+    }
+
+    return filterText + additionalText;
   }
 
   // instead of setting props to state within the constructor
@@ -98,7 +128,7 @@ class DomesticReviews extends Component {
 
     return (
       <div style={{marginBottom: '50px'}}>
-        <Keywords setKeywordFilter={this.setKeywordFilter} domesticReviews={reviews}/>
+        <Keywords setKeywordFilter={this.setKeywordFilter} domesticReviews={reviews} filterByKeyword={filterByKeyword}/>
         {reviews.length ?
           <div>
           <Select value={filterBySelect} onChange={(e) => this.toggleSelectFilter(e.target.value)}>
@@ -107,7 +137,10 @@ class DomesticReviews extends Component {
           </Select>
           <Headline>Top reviews from the United States</Headline>
           {(filterByKeyword || sortByStars) &&
-          <BlueText onClick={this.clearFilter}>Clear filter</BlueText>}
+          <div style={{display: 'inline-flex', alignItems: 'center', marginTop: '15px'}}>
+            <H2>{this.showFilterText(filteredReviews.length)}</H2>
+            <BlueText onClick={() => this.clearFilter('all')}>Clear filter</BlueText>
+          </div >}
           {filteredReviews.map((review, index) => <ReviewItem key={index} review={review} keyword={filterByKeyword}/>)}
         </div>
         :

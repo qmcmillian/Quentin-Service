@@ -46,8 +46,9 @@ class App extends Component {
   }
 
   handleRatingBarClick(numStars) {
+    const setStars = this.state.sortByStars !== numStars ? numStars : false;
     this.setState({
-      sortByStars: numStars
+      sortByStars: setStars
     });
   }
 
@@ -64,7 +65,6 @@ class App extends Component {
 
   render() {
     let reviews = this.state.reviews;
-    console.log(reviews);
 
     const unitedStates = [];
     const international = [];

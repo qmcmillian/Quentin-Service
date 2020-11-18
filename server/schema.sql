@@ -24,7 +24,7 @@ CREATE TABLE reviews (
   user_id INT NOT NULL,
   overall_rating TINYINT NOT NULL,
   review_date DATETIME NOT NULL,
-  headline VARCHAR(50) NOT NULL,
+  headline VARCHAR(100) NOT NULL,
   full_text VARCHAR(1024) NOT NULL,
   helpful INT NOT NULL,
   verified_purchase TINYINT(1),
@@ -36,4 +36,5 @@ CREATE TABLE reviews (
 /*  Execute this file from the command line by typing:
  *    mysql -u hrstudent -p < server/schema.sql
  *  to create the database and the tables.*/
+
 

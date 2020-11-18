@@ -6,8 +6,7 @@ const BlueTextStyles = styled.p`
   font-family: 'PT Sans';
   cursor: ${props => props.hover ? 'pointer' : 'none'};
   text-decoration: ${props => props.hover ? 'underline' : 'none'};
-  margin-top: 5px;
-  margin-bottom: 20px;
+  margin: 0;
   font-size: .9em;
 `;
 
