@@ -7,7 +7,7 @@ import IntlReviews from './IntlReviews.jsx';
 import CustomerImages from './CustomerImages.jsx';
 import ProductReviewBtn from './ProductReviewBtn.jsx';
 import GlobalFonts from '../fonts/fonts.js';
-import { Wrapper, Loading, LeaveReview, ReviewButton } from './Styles.jsx';
+import { Wrapper, Loading, LeaveReview, ReviewButton } from './styles/Styles.jsx';
 
 class App extends Component {
   constructor(props) {
@@ -90,3 +90,33 @@ class App extends Component {
 
 export default App;
 
+
+/*
+
+App
+
+ratings
+// Ratings
+// RatingBar
+// ProductReviewBtn
+
+customer_images
+// CustomerImages
+// Modal
+
+keywords
+// Keywords
+
+reviews
+// DomesticReviews
+// IntlReviews
+// ReviewItem
+
+styles
+// BlueText
+// Styles
+// Stars
+
+
+
+*/

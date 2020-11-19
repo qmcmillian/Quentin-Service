@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Modal from './Modal.jsx';
-import BlueText from './BlueText.jsx';
-import { Headline, NoImages, imgStyle } from './Styles.jsx';
+import BlueText from './styles/BlueText.jsx';
+import { Headline, NoImages, imgStyle } from './styles/Styles.jsx';
 
 const CustomerImages = ({imageUrls}) => {
   const [onHover, setOnHover] = useState(false);

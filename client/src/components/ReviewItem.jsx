@@ -1,6 +1,6 @@
 import React from 'react';
-import Stars from './Stars.jsx';
-import { ReviewItemContainer, Avatar, Box, ReviewItemHeadline, ReviewText, ReviewGrayText, Comment, Report, ThinLine, Verified, HelpfulBtn, Highlight } from './Styles.jsx';
+import Stars from './styles/Stars.jsx';
+import { ReviewItemContainer, Avatar, Box, ReviewItemHeadline, ReviewText, ReviewGrayText, Comment, Report, ThinLine, Verified, HelpfulBtn, Highlight } from './styles/Styles.jsx';
 
 const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 

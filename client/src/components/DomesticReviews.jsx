@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import ReviewItem from './ReviewItem.jsx';
-import Keywords from './Keywords.jsx';
-import BlueText from './BlueText.jsx';
-import { Headline, Select, H2 } from './Styles.jsx';
+import Keywords from './keywords/Keywords.jsx';
+import BlueText from './styles/BlueText.jsx';
+import { Headline, Select, H2 } from './styles/Styles.jsx';
 
 class DomesticReviews extends Component {
   constructor(props) {

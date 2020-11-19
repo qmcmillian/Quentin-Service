@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Container, NumberOfStars, Percentage, fullBarStyle, hoverBarStyle, StyledBar } from './Styles.jsx';
+import { Container, NumberOfStars, Percentage, fullBarStyle, hoverBarStyle, StyledBar } from './styles/Styles.jsx';
 
 const RatingBar = ({ percentage, stars, handleRatingBarClick }) => {
   const [hoverStyle, setHoverStyle] = useState(false);

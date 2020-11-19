@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { SpacedHeadline, Keyword } from './Styles.jsx';
+import { SpacedHeadline, Keyword } from '../styles/Styles.jsx';
 
 class Keywords extends Component {
   constructor(props) {
