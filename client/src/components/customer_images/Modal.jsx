@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDom from 'react-dom';
-import { ModalStyles, OverlayStyles, modalMain, imageStyles, CloseBtn, ModalHeader } from './styles/Styles.jsx';
+import { ModalStyles, OverlayStyles, modalMain, imageStyles, CloseBtn, ModalHeader } from '../styles/Styles.jsx';
 
 const Modal = ({open, imageUrls, onClose}) => {
   if (!open) return null;

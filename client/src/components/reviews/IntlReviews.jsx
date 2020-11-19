@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import ReviewItem from './ReviewItem.jsx';
-import { Headline, NoReviews } from './styles/Styles.jsx';
+import { Headline, NoReviews } from '../styles/Styles.jsx';
 
 const IntlReviews = ({intlReviews}) => {
   intlReviews.sort((a, b) => (a.helpful < b.helpful) ? 1 : -1);

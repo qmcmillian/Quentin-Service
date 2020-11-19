@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import Ratings from './ratings//Ratings.jsx';
 import ProductReviewBtn from './ratings/ProductReviewBtn.jsx';
-import DomesticReviews from './DomesticReviews.jsx';
-import IntlReviews from './IntlReviews.jsx';
-import CustomerImages from './CustomerImages.jsx';
+import CustomerImages from './customer_images/CustomerImages.jsx';
+import DomesticReviews from './reviews/DomesticReviews.jsx';
+import IntlReviews from './reviews/IntlReviews.jsx';
 import GlobalFonts from '../fonts/fonts.js';
 import { Wrapper, Loading, LeaveReview, ReviewButton } from './styles/Styles.jsx';
+import axios from 'axios';
 
 class App extends Component {
   constructor(props) {
@@ -89,33 +89,3 @@ class App extends Component {
 
 export default App;
 
-
-/*
-
-App
-
-ratings
-// Ratings
-// RatingBar
-// ProductReviewBtn
-
-customer_images
-// CustomerImages
-// Modal
-
-keywords
-// Keywords
-
-reviews
-// DomesticReviews
-// IntlReviews
-// ReviewItem
-
-styles
-// BlueText
-// Styles
-// Stars
-
-
-
-*/
