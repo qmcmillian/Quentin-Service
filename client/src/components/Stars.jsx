@@ -14,7 +14,7 @@ const Stars = ({rating, height}) => {
         } else {
           typeOfStar = 3; // empty
         }
-        return <img src={`https://hr-fec.s3.us-east-2.amazonaws.com/amz-star-pngs/${typeOfStar}.png`} style={{height: height}}></img>
+        return <img key={index} src={`https://hr-fec.s3.us-east-2.amazonaws.com/amz-star-pngs/${typeOfStar}.png`} style={{height: height}}></img>
       })}
     </div>
   )
