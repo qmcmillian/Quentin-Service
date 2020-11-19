@@ -7,7 +7,7 @@ Enzyme.configure({ adapter: new Adapter() });
 
 describe('Ratings Component', () => {
   it('should render', () => {
-    const wrapper = shallow(<CustomerImages imageUrls={[]}/>);
+    const wrapper = shallow(<Ratings ratings={[4, 2, 3, 5, 3]}/>);
     expect(wrapper.exists()).toBeTruthy();
   });
 
