@@ -1,14 +1,5 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
-
-const BlueTextStyles = styled.p`
-  color: ${props => props.hover ? '#C7511F' : '#007185'};
-  font-family: 'PT Sans';
-  cursor: ${props => props.hover ? 'pointer' : 'none'};
-  text-decoration: ${props => props.hover ? 'underline' : 'none'};
-  margin: 0;
-  font-size: .9em;
-`;
+import { BlueTextStyles } from './Styles.jsx';
 
 const BlueText = ({children, onClick}) => {
   const [hover, setHover] = useState(false);

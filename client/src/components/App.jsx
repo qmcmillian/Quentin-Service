@@ -7,31 +7,7 @@ import IntlReviews from './IntlReviews.jsx';
 import CustomerImages from './CustomerImages.jsx';
 import ProductReviewBtn from './ProductReviewBtn.jsx';
 import GlobalFonts from '../fonts/fonts.js';
-import styled from 'styled-components';
-
-const Wrapper = styled.div`
-  display: flex;
-`;
-
-const Loading = styled.h1`
-  font-family: 'PT Sans';
-  font-size: 1.3em;
-`;
-
-const LeaveReview = styled.h3`
-  font-family: 'PT Sans';
-  font-weight: 400;
-  margin-top: 75px;
-`;
-
-const ReviewButton = styled.button`
-  font-family: "PT Sans";
-  background-image: linear-gradient(rgb(244, 226, 181), rgb(240, 195, 80));
-  border: 0;
-  border-radius: 3px;
-  padding: 5px 15px;
-  cursor: pointer;
-`;
+import { Wrapper, Loading, LeaveReview, ReviewButton } from './Styles.jsx';
 
 class App extends Component {
   constructor(props) {
@@ -60,7 +36,8 @@ class App extends Component {
           reviews: results.data,
           pageLoaded: true
         });
-      });
+      })
+      .catch(console.log);
   }
 
   render() {
