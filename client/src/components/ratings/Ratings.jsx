@@ -1,7 +1,7 @@
 import React from 'react';
 import RatingBar from './RatingBar.jsx';
-import Stars from './styles/Stars.jsx';
-import { RatingsHeadline, NoRatings, GrayText } from './styles/Styles.jsx';
+import Stars from '../styles/Stars.jsx';
+import { RatingsHeadline, NoRatings, GrayText } from '../styles/Styles.jsx';
 
 const ratingsCalculations = (ratings) => {
   const len = ratings.length;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { ReviewProduct, Text, ReviewProductBtn } from './styles/Styles.jsx';
+import { ReviewProduct, Text, ReviewProductBtn } from '../styles/Styles.jsx';
 
 const ProductReviewBtn = () => {
   return (

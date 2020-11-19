@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 import axios from 'axios';
-import Ratings from './Ratings.jsx';
+import Ratings from './ratings//Ratings.jsx';
+import ProductReviewBtn from './ratings/ProductReviewBtn.jsx';
 import DomesticReviews from './DomesticReviews.jsx';
 import IntlReviews from './IntlReviews.jsx';
 import CustomerImages from './CustomerImages.jsx';
-import ProductReviewBtn from './ProductReviewBtn.jsx';
 import GlobalFonts from '../fonts/fonts.js';
 import { Wrapper, Loading, LeaveReview, ReviewButton } from './styles/Styles.jsx';
 
