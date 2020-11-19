@@ -1,38 +1,14 @@
 import React, { Component } from 'react';
 import ReviewItem from './ReviewItem.jsx';
-import Keywords from './Keywords.jsx';
-import BlueText from './BlueText.jsx';
-import styled from 'styled-components';
-
-const Headline = styled.h1`
-  font-family: 'PT Sans';
-  font-size: 1.3em;
-  margin: 0;
-`;
-
-const Select = styled.select`
-  font-family: 'PT Sans';
-  font-size: .7em;
-  background-color: #f1f2f2;
-  padding: 1px 40px 1px 3px;
-  margin-bottom: 22px;
-  margin-top: 30px;
-  border-radius: 5px;
-`;
-
-const H2 = styled.h2`
-  font-family: 'PT Sans';
-  font-size: 1em;
-  margin: 0 10px 0 0;
-`;
-
+import Keywords from '../keywords/Keywords.jsx';
+import BlueText from '../styles/BlueText.jsx';
+import { Headline, Select, H2 } from '../styles/Styles.jsx';
 
 class DomesticReviews extends Component {
   constructor(props) {
     super(props);
     this.state = {
       // is initializing state in the component with props an 'anti-pattern'?
-      // it’s not an anti-pattern if you make it clear that the prop is only seed data for the component’s internally-controlled state
       reviews: this.props.domesticReviews,
       topReviews: [],
       mostRecent: [],

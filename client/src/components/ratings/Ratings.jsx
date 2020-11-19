@@ -1,31 +1,9 @@
 import React from 'react';
 import RatingBar from './RatingBar.jsx';
-import styled from 'styled-components';
-import Stars from './Stars.jsx';
+import Stars from '../styles/Stars.jsx';
+import { RatingsHeadline, NoRatings, GrayText } from '../styles/Styles.jsx';
 
-const Headline = styled.h1`
-  font-family: 'PT Sans';
-  font-weight: 700;
-  width: 300px;
-  font-size: 1.7em;
-  margin: 0 0 5px 0;
-`;
-
-const NoReviews = styled.h2`
-  font-family: 'PT Sans';
-  font-weight: 700;
-  font-size: 1.2em;
-  margin: 5px 0;
-`;
-
-const GrayText = styled.p`
-  font-family: 'PT Sans';
-  font-size: .9em;
-  color: #565959;
-  margin: 8px 0;
-`;
-
-const Ratings = ({ratings, handleRatingBarClick}) => {
+const ratingsCalculations = (ratings) => {
   const len = ratings.length;
   const totals = {};
   let sumTotal = 0;
@@ -45,9 +23,15 @@ const Ratings = ({ratings, handleRatingBarClick}) => {
 
   percentages.reverse().pop();
 
+  return [len, globalAverage, percentages]
+};
+
+const Ratings = ({ratings, handleRatingBarClick}) => {
+  const [len, globalAverage, percentages] = ratingsCalculations(ratings);
+
   return (
     <div style={{marginRight: '100px', marginLeft: '10px'}}>
-      <Headline>Customer reviews</Headline>
+      <RatingsHeadline>Customer reviews</RatingsHeadline>
       {ratings.length ?
         <div>
           <div style={{display: 'flex', alignItems: 'flex-end'}}>
@@ -57,7 +41,7 @@ const Ratings = ({ratings, handleRatingBarClick}) => {
           <GrayText>{len} global rating{len > 1 && 's'}</GrayText>
         </div>
         :
-        <NoReviews>There are no customer reviews yet.</NoReviews>}
+        <NoRatings>There are no customer reviews yet.</NoRatings>}
       {percentages.map((percentage, index) => <RatingBar key={index} percentage={percentage} stars={5 - index} handleRatingBarClick={handleRatingBarClick}/>)}
     </div>
   );

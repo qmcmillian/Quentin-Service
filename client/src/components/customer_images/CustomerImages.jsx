@@ -1,29 +1,7 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
 import Modal from './Modal.jsx';
-import BlueText from './BlueText.jsx';
-
-const Headline = styled.h1`
-  font-family: 'PT Sans';
-  font-size: 1.3em;
-  margin-top: 0;
-  margin-bottom: 10px;
-`;
-
-const imgStyle = {
-  height: '137px',
-  width: '137px',
-  marginRight: '5px',
-  objectFit: 'cover'
-};
-
-const NoImages = styled.h1`
-  font-family: 'PT Sans';
-  font-size: 1em;
-  font-weight: 400;
-  margin-top: 0;
-  margin-bottom: 10px;
-`;
+import BlueText from '../styles/BlueText.jsx';
+import { Headline, NoImages, imgStyle } from '../styles/Styles.jsx';
 
 const CustomerImages = ({imageUrls}) => {
   const [onHover, setOnHover] = useState(false);
@@ -33,7 +11,7 @@ const CustomerImages = ({imageUrls}) => {
     <div>
       <Headline>Customer images</Headline>
       {!imageUrls.length ? <NoImages>No customer images yet.</NoImages> :
-      <div>
+      <div style={{marginTop: '10px'}}>
       {imageUrls.map((image, index) => {
         if (image && index < 4) {
           return <img src={image} style={imgStyle}/>
