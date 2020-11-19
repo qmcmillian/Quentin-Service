@@ -4,7 +4,7 @@ import ProductReviewBtn from './ratings/ProductReviewBtn.jsx';
 import CustomerImages from './customer_images/CustomerImages.jsx';
 import DomesticReviews from './reviews/DomesticReviews.jsx';
 import IntlReviews from './reviews/IntlReviews.jsx';
-import GlobalFonts from '../fonts/fonts.js';
+import GlobalFonts from './styles/fonts.js';
 import { Wrapper, Loading, LeaveReview, ReviewButton } from './styles/Styles.jsx';
 import axios from 'axios';
 
