@@ -1,8 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import FullStar from '../img/full-star.png';
-import HalfStar from '../img/half-star.png';
-import EmptyStar from '../img/empty-star.png';
 
 const Stars = ({rating, height}) => {
   return (
@@ -11,17 +8,16 @@ const Stars = ({rating, height}) => {
         let star = rating - index;
         let typeOfStar;
         if (star >= 0.8) {
-          typeOfStar = FullStar;
+          typeOfStar = 1; // full
         } else if (star >= 0.21) {
-          typeOfStar = HalfStar;
+          typeOfStar = 2; // half
         } else {
-          typeOfStar = EmptyStar;
+          typeOfStar = 3; // empty
         }
-        return <img src={typeOfStar} style={{height: height}}></img>
+        return <img src={`https://hr-fec.s3.us-east-2.amazonaws.com/amz-star-pngs/${typeOfStar}.png`} style={{height: height}}></img>
       })}
     </div>
   )
 };
 
 export default Stars;
-
