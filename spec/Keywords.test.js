@@ -5,7 +5,7 @@ import Keywords from '../client/src/components/keywords/Keywords';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-describe('CustomerImages Component', () => {
+describe('Keywords Component', () => {
   it('should render', () => {
     const wrapper = shallow(<Keywords domesticReviews={['mock']}/>);
     expect(wrapper.exists()).toBeTruthy();
@@ -18,7 +18,6 @@ describe('CustomerImages Component', () => {
 
   it('should limit the length of the keywords array to 12', () => {
     const wrapper = shallow(<Keywords domesticReviews={['mock']}/>);
-    console.log('LENGTH', wrapper.state().keywords.length)
     expect(wrapper.state().keywords.length <= 12).toBe(true);
   });
 });

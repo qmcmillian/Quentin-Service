@@ -14,7 +14,7 @@ const CustomerImages = ({imageUrls}) => {
       <div style={{marginTop: '10px'}}>
       {imageUrls.map((image, index) => {
         if (image && index < 4) {
-          return <img src={image} style={imgStyle}/>
+          return <img key={index} src={image} style={imgStyle}/>
         }
       })}
       <BlueText onClick={() => setIsOpen(true)}>See all customer images</BlueText>
