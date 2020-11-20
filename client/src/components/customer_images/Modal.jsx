@@ -17,7 +17,7 @@ const Modal = ({open, imageUrls, onClose}) => {
       </div>
     </div>
     </>,
-    document.getElementById('portal')
+    document.getElementById('reviewsPortal')
   );
 };
 

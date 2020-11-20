@@ -23,7 +23,7 @@ app.get('/api/products/:id/reviews', (req, res) => {
   });
 });
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3004;
 app.listen(port, () => {
   console.log(`The server is listening on port ${port}...`);
 });
