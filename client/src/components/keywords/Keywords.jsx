@@ -39,7 +39,7 @@ class Keywords extends Component {
     // Keyword extraction API
     var myHeaders = new Headers();
     // Move this API key into a .env, and .gitignore the file
-    // install dotenv?
+    // install dotenv??
     myHeaders.append("apikey", "EOqzyV2gQYP6t8uOW7GGCpKB0zvqkFIO");
 
     var requestOptions = {
