@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import KeywordItem from './KeywordItem.jsx';
 import { SpacedHeadline, Keyword } from '../styles/Styles.jsx';
 
 class Keywords extends Component {
@@ -65,7 +66,7 @@ class Keywords extends Component {
       <div>
         <SpacedHeadline>Read reviews that mention</SpacedHeadline>
         <div style={{display: 'flex', flexWrap: 'wrap', maxWidth: '585px', minWidth: '450px'}}>
-        {this.state.keywords.map((keyword, index) => <Keyword selected={this.state.selectedKeywordIndex === index} key={index} onClick={() => this.handleKeywordBtnClick(index)}>{keyword.text}</Keyword>)}
+        {this.state.keywords.map((keyword, index) => <KeywordItem selected={this.state.selectedKeywordIndex === index} key={index} onClick={() => this.handleKeywordBtnClick(index)}>{keyword.text}</KeywordItem>)}
         </div>
       </div>
     )

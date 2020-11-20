@@ -73,7 +73,7 @@ export const NoReviews = styled.h2`
   font-size: 1em;
 `;
 
-export const Keyword = styled.div`
+export const KeywordStyles = styled.div`
   font-family: 'PT Sans';
   font-size: .9em;
   height: 20px;
@@ -84,6 +84,7 @@ export const Keyword = styled.div`
   border-bottom: solid 1px #969696;
   display: inline-block;
   color: ${props => props.selected ? '#FFF' : '#111111'};
+  cursor: ${props => props.hover ? 'pointer' : 'none'};
 `;
 
 export const CloseBtn = styled.button`
