@@ -6,7 +6,7 @@ class Keywords extends Component {
     super(props);
     this.state = {
       // sample data
-      keywords: [{text: "Lorem Ipsum", score: 0.880351}, {text: "piece of classical Latin literature", score: 0.78271}, {text: "Richard McClintock", score: 0.759316}, {text: "popular belief", score: 0.752326}, {text: "Hampden-Sydney College", score: 0.68642}, {text: "obscure Latin words", score: 0.667476}, {text: "Latin professor", score: 0.637776}, {text: "Lorem Ipsum passage", score: 0.631327}, {text: "first line of Lorem Ipsum", score: 0.618045}, {text: "classical literature", score: 0.602034}, {text: "book", score: 0.56998}, {text: "treatise", score: 0.539041}, {text: 'a', score: 0.456789}, {text: 'S', score: 0.246789}],
+      keywords: [{text: "Lorem Ipsum", score: 0.880351}, {text: "Richard McClintock", score: 0.759316}, {text: "popular belief", score: 0.752326}, {text: "Hampden-Sydney College", score: 0.68642}, {text: "obscure Latin words", score: 0.667476}, {text: "Latin professor", score: 0.637776}, {text: "classical literature", score: 0.602034}, {text: "book", score: 0.56998}, {text: "treatise", score: 0.539041}, {text: 'a', score: 0.456789}, {text: 'S', score: 0.246789}],
       selectedKeywordIndex: null
     }
 
