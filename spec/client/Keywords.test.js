@@ -1,7 +1,7 @@
 import React from 'react';
 import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import Keywords from '../client/src/components/keywords/Keywords';
+import Keywords from '../../client/src/components/keywords/Keywords';
 
 Enzyme.configure({ adapter: new Adapter() });
 
