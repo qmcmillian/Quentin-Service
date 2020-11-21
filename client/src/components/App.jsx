@@ -28,6 +28,8 @@ class App extends Component {
   }
 
   componentDidMount() {
+    // const randomProductId = window.location.pathname.split('/').join('');
+    // console.log(window.location.pathname);
     const randomProductId = Math.floor(Math.random() * 100) + 1;
     axios.get(`/api/products/${randomProductId}/reviews`)
       .then(results => {
@@ -36,7 +38,7 @@ class App extends Component {
           pageLoaded: true
         });
       })
-      .catch(console.log);
+      .catch(err => console.log('There was an error in making the API request for product reviews:', err));
   }
 
   render() {
