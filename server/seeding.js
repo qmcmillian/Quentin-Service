@@ -77,3 +77,4 @@ const insertReviews = async () => {
 insertReviews();
 
 
+console.log('Finished seeding database. You may now exit this process (Command + C)');
