@@ -31,7 +31,7 @@ class App extends Component {
     // const randomProductId = window.location.pathname.split('/').join('');
     // console.log(window.location.pathname);
     const randomProductId = Math.floor(Math.random() * 100) + 1;
-    axios.get(`/api/products/${randomProductId}/reviews`)
+    axios.get(`/api/reviews/${randomProductId}`)
       .then(results => {
         this.setState({
           reviews: results.data,
