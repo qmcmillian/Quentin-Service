@@ -20,3 +20,11 @@
 .keywordItem:hover {
   cursor: pointer;
 }
+
+.spacedHeadline {
+  font-family: 'PT Sans';
+  font-size: 1.3em;
+  margin: 20px 0;
+  font-weight: 700;
+}
+

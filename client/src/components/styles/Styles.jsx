@@ -39,11 +39,11 @@ export const Headline = styled.h1`
   margin: 0;
 `;
 
-export const SpacedHeadline = styled.h1`
-  font-family: 'PT Sans';
-  font-size: 1.3em;
-  margin: 20px 0;
-`;
+// export const SpacedHeadline = styled.h1`
+//   font-family: 'PT Sans';
+//   font-size: 1.3em;
+//   margin: 20px 0;
+// `;
 
 export const NoImages = styled.h1`
   font-family: 'PT Sans';
@@ -73,19 +73,19 @@ export const NoReviews = styled.h2`
   font-size: 1em;
 `;
 
-export const KeywordStyles = styled.div`
-  font-family: 'PT Sans';
-  font-size: .9em;
-  height: 20px;
-  background-color: ${props => props.selected ? '#00464F' : '#D7E8EA'};
-  padding: 0px 14px 10px 14px;
-  line-height: 29px;
-  margin: 0px 10px 14px 0px;
-  border-bottom: solid 1px #969696;
-  display: inline-block;
-  color: ${props => props.selected ? '#FFF' : '#111111'};
-  cursor: ${props => props.hover ? 'pointer' : 'none'};
-`;
+// export const KeywordStyles = styled.div`
+//   font-family: 'PT Sans';
+//   font-size: .9em;
+//   height: 20px;
+//   background-color: ${props => props.selected ? '#00464F' : '#D7E8EA'};
+//   padding: 0px 14px 10px 14px;
+//   line-height: 29px;
+//   margin: 0px 10px 14px 0px;
+//   border-bottom: solid 1px #969696;
+//   display: inline-block;
+//   color: ${props => props.selected ? '#FFF' : '#111111'};
+//   cursor: ${props => props.hover ? 'pointer' : 'none'};
+// `;
 
 export const CloseBtn = styled.button`
   border: 1px solid #e77600;
