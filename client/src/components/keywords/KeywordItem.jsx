@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import { KeywordStyles } from '../styles/Styles.jsx';
+import React from 'react';
+// import { KeywordStyles } from '../styles/Styles.jsx';
+import s from '../styles/KeywordItem.css';
 
 const KeywordItem = ({children, onClick, selected}) => {
-  const [hover, setHover] = useState(false);
-
+  const isSelected = selected ? s.selected : '';
   return (
-  <KeywordStyles selected={selected} onClick={onClick} hover={hover} onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>{children}</KeywordStyles>
+  <div className={`${s.keywordItem} ${isSelected}`} onClick={onClick}>{children}</div>
   )
 };
 
