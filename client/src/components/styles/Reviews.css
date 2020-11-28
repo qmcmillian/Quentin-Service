@@ -54,31 +54,29 @@
   height: 32px;
 }
 
-/*
-
-import { ReviewItemContainer, Avatar, Box, ReviewItemHeadline, ReviewText, ReviewGrayText, Comment, Report, ThinLine, Verified, HelpfulBtn, Highlight } from '../styles/Styles.jsx';
-
-export const ReviewItemContainer = styled.div`
-  margin: 20px 0;
-`;
-
-export const Avatar = styled.div`
+.box {
   display: flex;
   align-items: center;
   height: 32px;
-`;
+}
 
-export const Box = styled.div`
-  display: flex;
-  align-items: center;
-  height: 32px;
-`;
-
-export const ReviewItemHeadline = styled.h1`
+.reviewItemHeadline {
   font-family: 'PT Sans';
+  font-weight: 700;
   font-size: 1em;
   margin-left: 8px;
-`;
+}
+
+.reviewText {
+  font-family: 'PT Sans';
+  font-size: 0.9em;
+  margin: 5px 0 9px 0;
+  max-width: 585px;
+}
+
+
+
+/*
 
 export const ReviewText = styled.p`
   font-family: 'PT Sans';
