@@ -1,0 +1,32 @@
+.headline {
+  font-family: 'PT Sans';
+  font-weight: 700;
+  font-size: 1.3em;
+  margin: 0;
+}
+
+.select {
+  font-family: 'PT Sans';
+  font-size: .7em;
+  background-color: #f1f2f2;
+  padding: 1px 40px 1px 3px;
+  margin-bottom: 22px;
+  margin-top: 30px;
+  border-radius: 5px;
+}
+
+.filters {
+  font-family: 'PT Sans';
+  font-weight: 700;
+  font-size: 1em;
+  margin: 0 10px 0 0;
+}
+
+
+/*
+
+
+
+
+
+*/
