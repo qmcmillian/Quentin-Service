@@ -74,54 +74,46 @@
   max-width: 585px;
 }
 
-
-
-/*
-
-export const ReviewText = styled.p`
-  font-family: 'PT Sans';
-  font-size: 0.9em;
-  margin: 5px 0 9px 0;
-  max-width: 585px;
-`;
-
-export const ReviewGrayText = styled.p`
+.reviewGrayText {
   font-family: 'PT Sans';
   font-size: .9em;
   color: #565959;
   margin: 3px 0 0 0;
-`;
+}
 
-export const Comment = styled.p`
+.comment {
   font-family: 'PT Sans';
   font-size: .9em;
   color: #565959;
   margin: 3px 0 0 0;
   cursor: pointer;
-`;
+}
 
-export const Report = styled.p`
+.report {
   font-family: 'PT Sans';
   font-size: .9em;
   color: #565959;
   width: 90px;
   margin: 3px 0 0 0;
   cursor: pointer;
-`;
+}
 
-export const ThinLine = styled.p`
+.thinLine {
   border-left: 1px solid #d1d1d1;
   padding: 0 15px;
   line-height: 100%;
-`;
+}
 
-export const Verified = styled.p`
+.verified {
   font-family: 'PT Sans';
   font-weight: 700;
   font-size: .8em;
   color: #c45500;
   margin: 3px 0 0 0;
-`;
+}
+
+
+/*
 
 export const HelpfulBtn = styled.button`
   font-family: 'PT Sans';
