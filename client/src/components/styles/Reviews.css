@@ -22,6 +22,22 @@
   margin: 0 10px 0 0;
 }
 
+.blueText {
+  color: #007185;
+  font-family: 'PT Sans';
+  margin: 0;
+  font-size: .9em;
+}
+
+.blueText:hover {
+  color: #C7511F;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+
+
+
 
 /*
 

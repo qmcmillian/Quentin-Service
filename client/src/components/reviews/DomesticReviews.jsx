@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import ReviewItem from './ReviewItem.jsx';
 import Keywords from '../keywords/Keywords.jsx';
-import BlueText from '../styles/BlueText.jsx';
-// import { Headline, Select, H2 } from '../styles/Styles.jsx';
 import s from '../styles/Reviews.css';
 
 class DomesticReviews extends Component {
@@ -116,7 +114,7 @@ class DomesticReviews extends Component {
           {(filterByKeyword || sortByStars) &&
           <div style={{display: 'inline-flex', alignItems: 'center', marginTop: '15px'}}>
             <div className={s.filters}>{this.showFilterText(filteredReviews.length)}</div>
-            <BlueText onClick={() => this.clearFilter('all')}>Clear filter</BlueText>
+            <div className={s.blueText} onClick={() => this.clearFilter('all')}>Clear filter</div>
           </div >}
           {filteredReviews.map((review, index) => <ReviewItem key={index} review={review} keyword={filterByKeyword}/>)}
         </div>
