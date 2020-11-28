@@ -44,6 +44,16 @@
   background-color: #FFEBB7;
 }
 
+.reviewItemContainer {
+  margin: 20px 0;
+}
+
+.avatar {
+  display: flex;
+  align-items: center;
+  height: 32px;
+}
+
 /*
 
 import { ReviewItemContainer, Avatar, Box, ReviewItemHeadline, ReviewText, ReviewGrayText, Comment, Report, ThinLine, Verified, HelpfulBtn, Highlight } from '../styles/Styles.jsx';
@@ -123,10 +133,6 @@ export const HelpfulBtn = styled.button`
   cursor: pointer;
   opacity: .9;
   margin-right: 18px;
-`;
-
-export const Highlight = styled.span`
-  background-color: #FFEBB7;
 `;
 
 

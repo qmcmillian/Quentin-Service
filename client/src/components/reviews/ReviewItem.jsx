@@ -1,6 +1,6 @@
 import React from 'react';
 import Stars from '../styles/Stars.jsx';
-import { ReviewItemContainer, Avatar, Box, ReviewItemHeadline, ReviewText, ReviewGrayText, Comment, Report, ThinLine, Verified, HelpfulBtn } from '../styles/Styles.jsx';
+import { Box, ReviewItemHeadline, ReviewText, ReviewGrayText, Comment, Report, ThinLine, Verified, HelpfulBtn } from '../styles/Styles.jsx';
 import s from '../styles/Reviews.css';
 
 const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
@@ -25,11 +25,11 @@ const ReviewItem = ({review, keyword}) => {
   };
 
   return (
-  <ReviewItemContainer>
-    <Avatar>
+  <div className={s.reviewItemContainer}>
+    <div className={s.avatar}>
       <img src={avatar} style={{borderRadius: '100%', width: '30px', height: '30px', objectFit: 'cover'}}/>
       <div style={{marginLeft: '10px', fontFamily: 'PT Sans', fontSize: '.85em'}}>{user_name}</div>
-    </Avatar>
+    </div>
     <Box>
       <Stars rating={overall_rating} height={'15px'}/><ReviewItemHeadline>{headline}</ReviewItemHeadline>
     </Box>
@@ -46,7 +46,7 @@ const ReviewItem = ({review, keyword}) => {
       <ThinLine><Comment>Comment</Comment></ThinLine>
       <ThinLine><Report>Report abuse</Report></ThinLine>
     </div>
-  </ReviewItemContainer>
+  </div>
   );
 };
 
