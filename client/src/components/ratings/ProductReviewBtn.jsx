@@ -1,14 +1,12 @@
 import React from 'react';
-import { ReviewProduct, Text, ReviewProductBtn } from '../styles/Styles.jsx';
+import s from '../styles/Ratings.css';
 
-const ProductReviewBtn = () => {
-  return (
-    <div>
-      <ReviewProduct>Review this product</ReviewProduct>
-      <Text>Share your thoughts with other customers</Text>
-      <ReviewProductBtn>Write a customer review</ReviewProductBtn>
-    </div>
-  );
-};
+const ProductReviewBtn = () => (
+  <div>
+    <div className={s.reviewProduct}>Review this product</div>
+    <div className={s.text}>Share your thoughts with other customers</div>
+    <button className={s.reviewProductBtn}>Write a customer review</button>
+  </div>
+);
 
 export default ProductReviewBtn;

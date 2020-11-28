@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import ReviewItem from './ReviewItem.jsx';
 import Keywords from '../keywords/Keywords.jsx';
-import BlueText from '../styles/BlueText.jsx';
-import { Headline, Select, H2 } from '../styles/Styles.jsx';
+import s from '../styles/Reviews.css';
 
 class DomesticReviews extends Component {
   constructor(props) {
@@ -107,20 +106,20 @@ class DomesticReviews extends Component {
         <Keywords setKeywordFilter={this.setKeywordFilter} domesticReviews={reviews} filterByKeyword={filterByKeyword}/>
         {reviews.length ?
           <div>
-          <Select value={filterBySelect} onChange={(e) => this.toggleSelectFilter(e.target.value)}>
+          <select className={s.select} value={filterBySelect} onChange={(e) => this.toggleSelectFilter(e.target.value)}>
             <option value="top">Top reviews</option>
             <option value="recent">Most recent</option>
-          </Select>
-          <Headline>Top reviews from the United States</Headline>
+          </select>
+          <div className={s.headline}>Top reviews from the United States</div>
           {(filterByKeyword || sortByStars) &&
           <div style={{display: 'inline-flex', alignItems: 'center', marginTop: '15px'}}>
-            <H2>{this.showFilterText(filteredReviews.length)}</H2>
-            <BlueText onClick={() => this.clearFilter('all')}>Clear filter</BlueText>
+            <div className={s.filters}>{this.showFilterText(filteredReviews.length)}</div>
+            <div className={s.blueText} onClick={() => this.clearFilter('all')}>Clear filter</div>
           </div >}
           {filteredReviews.map((review, index) => <ReviewItem key={index} review={review} keyword={filterByKeyword}/>)}
         </div>
         :
-        <H2>No reviews from the United States</H2>}
+        <div className={s.filters}>No reviews from the United States</div>}
       </div>
     );
   }

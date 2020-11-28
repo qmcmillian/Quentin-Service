@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import KeywordItem from './KeywordItem.jsx';
-import { SpacedHeadline, Keyword } from '../styles/Styles.jsx';
+import s from '../styles/Keywords.css';
 
 class Keywords extends Component {
   constructor(props) {
@@ -49,6 +49,7 @@ class Keywords extends Component {
       body: raw
     };
 
+    // Real API call (avoiding unnecessary costs)
     // fetch("https://api.promptapi.com/keyword", requestOptions)
     //   .then(response => response.json())
     //   .then(data => {
@@ -64,7 +65,7 @@ class Keywords extends Component {
   render() {
     return (
       <div>
-        <SpacedHeadline>Read reviews that mention</SpacedHeadline>
+        <div className={s.spacedHeadline}>Read reviews that mention</div>
         <div style={{display: 'flex', flexWrap: 'wrap', maxWidth: '585px', minWidth: '450px'}}>
         {this.state.keywords.map((keyword, index) => <KeywordItem selected={this.state.selectedKeywordIndex === index} key={index} onClick={() => this.handleKeywordBtnClick(index)}>{keyword.text}</KeywordItem>)}
         </div>
