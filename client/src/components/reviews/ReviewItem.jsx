@@ -1,6 +1,5 @@
 import React from 'react';
 import Stars from '../styles/Stars.jsx';
-import { HelpfulBtn } from '../styles/Styles.jsx';
 import s from '../styles/Reviews.css';
 
 const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
@@ -42,7 +41,7 @@ const ReviewItem = ({ review, keyword }) => {
         {helpful !== 1 ? `${helpful} people found this helpful` : 'One person found this helpful'}
       </p>
       <div style={{ display: 'inline-flex', alignItems: 'center', width: '300px', height: '50px' }}>
-        <HelpfulBtn>Helpful</HelpfulBtn>
+        <button className={s.helpfulBtn}>Helpful</button>
         <p className={s.thinLine}><p className={s.comment}>Comment</p></p>
         <p className={s.thinLine}><p className={s.report}>Report abuse</p></p>
       </div>

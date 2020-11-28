@@ -5,7 +5,7 @@ import CustomerImages from './customer_images/CustomerImages.jsx';
 import DomesticReviews from './reviews/DomesticReviews.jsx';
 import IntlReviews from './reviews/IntlReviews.jsx';
 import GlobalFonts from './styles/fonts.js';
-import { Wrapper, Loading, LeaveReview, ReviewButton } from './styles/Styles.jsx';
+import s from './styles/App.css';
 import axios from 'axios';
 
 class App extends Component {
@@ -64,8 +64,8 @@ class App extends Component {
 
     return (
       <div>
-        {!this.state.pageLoaded ? <Loading>Loading reviews...</Loading> :
-        <Wrapper>
+        {!this.state.pageLoaded ? <div className={s.loading}>Loading reviews...</div> :
+        <div className={s.wrapper}>
           <GlobalFonts />
           <div style={{display: 'block'}}>
             <Ratings ratings={ratings} handleRatingBarClick={this.handleRatingBarClick}/>
@@ -79,10 +79,10 @@ class App extends Component {
           </div>
           :
           <div>
-            <LeaveReview>Share your thoughts with other customers</LeaveReview>
-            <ReviewButton>Write a customer review</ReviewButton>
+            <div className={s.leaveReview}>Share your thoughts with other customers</div>
+            <button className={s.reviewBtn}>Write a customer review</button>
           </div>}
-        </Wrapper>
+        </div>
         }
       </div>
     );
@@ -90,4 +90,3 @@ class App extends Component {
 }
 
 export default App;
-

@@ -112,10 +112,7 @@
   margin: 3px 0 0 0;
 }
 
-
-/*
-
-export const HelpfulBtn = styled.button`
+.helpfulBtn {
   font-family: 'PT Sans';
   height: 29px;
   width: 98px;
@@ -123,7 +120,4 @@ export const HelpfulBtn = styled.button`
   cursor: pointer;
   opacity: .9;
   margin-right: 18px;
-`;
-
-
-*/
+}
