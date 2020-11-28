@@ -1,6 +1,7 @@
 import React from 'react';
 import Stars from '../styles/Stars.jsx';
-import { ReviewItemContainer, Avatar, Box, ReviewItemHeadline, ReviewText, ReviewGrayText, Comment, Report, ThinLine, Verified, HelpfulBtn, Highlight } from '../styles/Styles.jsx';
+import { ReviewItemContainer, Avatar, Box, ReviewItemHeadline, ReviewText, ReviewGrayText, Comment, Report, ThinLine, Verified, HelpfulBtn } from '../styles/Styles.jsx';
+import s from '../styles/Reviews.css';
 
 const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
@@ -17,7 +18,7 @@ const ReviewItem = ({review, keyword}) => {
     return (<span>
       { text.split(keyword)
         .reduce((acc, current) => {
-          return acc.concat(<Highlight key={keyword + current}>{ keyword }</Highlight>, current);
+          return acc.concat(<span className={s.highlight} key={keyword + current}>{ keyword }</span>, current);
         }, [])
       }
     </span>);

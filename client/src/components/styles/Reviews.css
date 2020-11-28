@@ -40,10 +40,94 @@
   font-size: 1em;
 }
 
+.highlight {
+  background-color: #FFEBB7;
+}
+
 /*
 
+import { ReviewItemContainer, Avatar, Box, ReviewItemHeadline, ReviewText, ReviewGrayText, Comment, Report, ThinLine, Verified, HelpfulBtn, Highlight } from '../styles/Styles.jsx';
 
+export const ReviewItemContainer = styled.div`
+  margin: 20px 0;
+`;
 
+export const Avatar = styled.div`
+  display: flex;
+  align-items: center;
+  height: 32px;
+`;
+
+export const Box = styled.div`
+  display: flex;
+  align-items: center;
+  height: 32px;
+`;
+
+export const ReviewItemHeadline = styled.h1`
+  font-family: 'PT Sans';
+  font-size: 1em;
+  margin-left: 8px;
+`;
+
+export const ReviewText = styled.p`
+  font-family: 'PT Sans';
+  font-size: 0.9em;
+  margin: 5px 0 9px 0;
+  max-width: 585px;
+`;
+
+export const ReviewGrayText = styled.p`
+  font-family: 'PT Sans';
+  font-size: .9em;
+  color: #565959;
+  margin: 3px 0 0 0;
+`;
+
+export const Comment = styled.p`
+  font-family: 'PT Sans';
+  font-size: .9em;
+  color: #565959;
+  margin: 3px 0 0 0;
+  cursor: pointer;
+`;
+
+export const Report = styled.p`
+  font-family: 'PT Sans';
+  font-size: .9em;
+  color: #565959;
+  width: 90px;
+  margin: 3px 0 0 0;
+  cursor: pointer;
+`;
+
+export const ThinLine = styled.p`
+  border-left: 1px solid #d1d1d1;
+  padding: 0 15px;
+  line-height: 100%;
+`;
+
+export const Verified = styled.p`
+  font-family: 'PT Sans';
+  font-weight: 700;
+  font-size: .8em;
+  color: #c45500;
+  margin: 3px 0 0 0;
+`;
+
+export const HelpfulBtn = styled.button`
+  font-family: 'PT Sans';
+  height: 29px;
+  width: 98px;
+  padding: 1px 22px;
+  cursor: pointer;
+  opacity: .9;
+  margin-right: 18px;
+`;
+
+export const Highlight = styled.span`
+  background-color: #FFEBB7;
+`;
 
 
 */
