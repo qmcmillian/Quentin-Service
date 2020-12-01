@@ -27,4 +27,4 @@
 3. In your browser, open up `localhost:3004` to view the running service
 
 # Questions, comments, grievances:
-- Reach out to me on GitHub: @joebuono
+- Email me: joebuono724(at)gmail.com
