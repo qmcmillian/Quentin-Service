@@ -7,8 +7,7 @@ class Keywords extends Component {
     super(props);
     this.state = {
       // sample data
-      // {text: "Lorem Ipsum", score: 0.880351}, {text: "Richard McClintock", score: 0.759316}, {text: "popular belief", score: 0.752326}, {text: "Hampden-Sydney College", score: 0.68642}, {text: "obscure Latin words", score: 0.667476}, {text: "Latin professor", score: 0.637776}, {text: "classical literature", score: 0.602034}, {text: "book", score: 0.56998}, {text: "treatise", score: 0.539041}, {text: 'a', score: 0.456789}, {text: 'S', score: 0.246789}
-      keywords: [],
+      keywords: [{text: "Lorem Ipsum", score: 0.880351}, {text: "Richard McClintock", score: 0.759316}, {text: "popular belief", score: 0.752326}, {text: "Hampden-Sydney College", score: 0.68642}, {text: "obscure Latin words", score: 0.667476}, {text: "Latin professor", score: 0.637776}, {text: "classical literature", score: 0.602034}, {text: "book", score: 0.56998}, {text: "treatise", score: 0.539041}, {text: 'a', score: 0.456789}, {text: 'S', score: 0.246789}],
       selectedKeywordIndex: null
     }
 
@@ -41,7 +40,7 @@ class Keywords extends Component {
     var myHeaders = new Headers();
     // Move this API key into a .env, and .gitignore the file
     // install dotenv??
-    myHeaders.append("apikey", "EOqzyV2gQYP6t8uOW7GGCpKB0zvqkFIO");
+    myHeaders.append("apikey", "SECRETAPIKEY");
 
     var requestOptions = {
       method: 'POST',
@@ -51,14 +50,14 @@ class Keywords extends Component {
     };
 
     // Real API call (avoiding unnecessary costs)
-    fetch("https://api.promptapi.com/keyword", requestOptions)
-      .then(response => response.json())
-      .then(data => {
-        this.setState({
-          keywords: data.result.slice(0, 8)
-        })
-      })
-      .catch(error => console.log('error', error));
+    // fetch("https://api.promptapi.com/keyword", requestOptions)
+    //   .then(response => response.json())
+    //   .then(data => {
+    //     this.setState({
+    //       keywords: data.result.slice(0, 8)
+    //     })
+    //   })
+    //   .catch(error => console.log('error', error));
   }
 
   render() {
