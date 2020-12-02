@@ -1,8 +1,8 @@
 var mysql = require('mysql');
 
 var connection = mysql.createConnection({
-  user: 'hrstudent',
-  password: '1q@W3e$R',
+  user: 'root',
+  password: 'password',
   database: 'amazonreviews'
 });
 
