@@ -11,9 +11,9 @@
 2. Navigate into your MySQL shell, create a user and grant them all permissions. For example, once you're in your MySQL shell, run these commands:
 
     `CREATE USER 'hrstudent'@'localhost' IDENTIFIED BY '1q@W3e$R';`
-    
+
     `GRANT ALL PRIVILEGES ON * . * TO 'hrstudent'@'localhost';`
-    
+
     `FLUSH PRIVILEGES;`
 
 # Connecting to and seeding the database
@@ -25,6 +25,15 @@
 1. To start the client: `npm run start-client`
 2. In a separate terminal, to start the server: `npm run start-server`
 3. In your browser, open up `localhost:3004` to view the running service
+
+# CRUD API
+
+| Action        | Method        | URL   |
+| ------------- |:-------------:| -----:|
+| Creates new review | Post  |  /api/reviews/  |
+| Gets all reviews for particular product | Get  | /api/reviews/:id |
+| Updates a review | Put  | /api/reviews/ |
+| Deletes a review | Delete | /api/reviews/:id |
 
 # Questions, comments, grievances:
 - Email me: joebuono724(at)gmail.com
