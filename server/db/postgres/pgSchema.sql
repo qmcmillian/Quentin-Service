@@ -13,7 +13,7 @@ CREATE TABLE products (
 CREATE TABLE users (
   id SERIAL PRIMARY KEY,
   user_name VARCHAR(50) NOT NULL,
-  country VARCHAR(50) NOT NULL,
+  country VARCHAR(75) NOT NULL,
   avatar VARCHAR(2083)
 );
 
@@ -30,15 +30,18 @@ CREATE TABLE reviews (
   product_photo VARCHAR(512)
 );
 
--- Exporting Tables to CSV files
+
+GRANT ALL PRIVILEGES ON DATABASE amazonreviews TO quentinmcmillian;
+GRANT ALL ON ALL TABLES IN SCHEMA public TO quentinmcmillian;
+GRANT ALL ON ALL SEQUENCES IN SCHEMA public TO quentinmcmillian;
+
+-- -- Import Shell Users Command
+COPY users (user_name,country,avatar) FROM '/Users/quentinmcmillian/Desktop/SDC/Quentin-Service/server/db/postgres/CSV/files/users.csv' DELIMITER '|' CSV HEADER;
+-- -- Import Products Shell
+COPY products (product_name) FROM '/Users/quentinmcmillian/Desktop/SDC/Quentin-Service/server/db/postgres/CSV/files/products.csv' DELIMITER ',' CSV HEADER;
+
+-- Import Shell Reviews Command
+COPY reviews (product_id,user_id,overall_rating,review_date,headline,full_text,helpful,verified_purchase,product_photo) FROM '/Users/quentinmcmillian/Desktop/SDC/Quentin-Service/server/db/postgres/CSV/files/reviews.csv' DELIMITER '|' CSV HEADER;
 
 -- psql -h localhost -d postgres -f /Users/quentinmcmillian/Desktop/SDC/Quentin-Service/server/db/postgres/pgschema.sql;
 
--- Import Shell Reviews Command
--- COPY reviews (product_id,user_id,overall_rating,review_date,headline,full_text,helpful,verified_purchase,product_photo) FROM '/Users/quentinmcmillian/Desktop/SDC/Quentin-Service/server/db/postgres/CSV/files/reviews.csv' DELIMITER ',' CSV HEADER;
-
--- Import Shell Users Command
--- COPY users (user_name,country,avatar) FROM '/Users/quentinmcmillian/Desktop/SDC/Quentin-Service/server/db/postgres/CSV/files/users.csv' DELIMITER ',' CSV HEADER;
-
--- Import Products Shell
--- COPY products (product_name) FROM '/Users/quentinmcmillian/Desktop/SDC/Quentin-Service/server/db/postgres/CSV/files/products.csv' DELIMITER ',' CSV HEADER;

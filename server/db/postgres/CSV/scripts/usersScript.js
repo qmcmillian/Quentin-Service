@@ -2,12 +2,12 @@ const path = require('path')
 const faker = require('faker');
 const fs = require('fs');
 
-const userFile =  path.join(__dirname, '../files/users.csv')
+const userFile =  '/Users/quentinmcmillian/Desktop/SDC/Quentin-Service/server/db/postgres/CSV/files/users.csv'
 const writeUsers = fs.createWriteStream(userFile);
-writeUsers.write('user_name, country, avatar\n', 'utf8');
+writeUsers.write('user_name| country| avatar\n', 'utf8');
 
-const writeOneHundredUsers = (writer, encoding, callback) => {
-  let i = 2;
+const writeTenMillionUsers = (writer, encoding, callback) => {
+  let i = 10000000;
   let id = 0;
 
   const write = () => {
@@ -19,7 +19,7 @@ const writeOneHundredUsers = (writer, encoding, callback) => {
       let randomCountry = (Math.random() <= .7) ? 'the United States' : faker.address.country();
       let randomAvatar = faker.image.imageUrl();
 
-      const data = `${randomUserName}, ${randomCountry}, ${randomAvatar}\n`;
+      const data = `${randomUserName}| ${randomCountry}| ${randomAvatar}\n`;
       if (i === 0) {
         writer.write(data, encoding, callback);
       } else {
@@ -37,6 +37,6 @@ const writeOneHundredUsers = (writer, encoding, callback) => {
   write()
 };
 
-  writeOneHundredUsers(writeUsers, 'utf-8', () => {
+  writeTenMillionUsers(writeUsers, 'utf-8', () => {
     writeUsers.end()
   })

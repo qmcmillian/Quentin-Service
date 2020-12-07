@@ -2,12 +2,12 @@ const path = require('path')
 const faker = require('faker');
 const fs = require('fs');
 
-const productsFile =  path.join(__dirname, '../files/products.csv')
+const productsFile =  '/Users/quentinmcmillian/Desktop/SDC/Quentin-Service/server/db/postgres/CSV/files/products.csv'
 const writeProducts= fs.createWriteStream(productsFile);
 writeProducts.write('product_name\n', 'utf8');
 
-const writeOneHundredProducts = (writer, encoding, callback) => {
-  let i = 10;
+const writeTenMillionProducts = (writer, encoding, callback) => {
+  let i = 10000000;
   let id = 0;
 
   const write = () => {
@@ -34,6 +34,6 @@ const writeOneHundredProducts = (writer, encoding, callback) => {
   write()
 };
 
-  writeOneHundredProducts(writeProducts, 'utf-8', () => {
+  writeTenMillionProducts(writeProducts, 'utf-8', () => {
     writeProducts.end()
   })
