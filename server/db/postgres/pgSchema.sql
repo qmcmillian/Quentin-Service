@@ -27,7 +27,8 @@ CREATE TABLE reviews (
   full_text VARCHAR(1024) NOT NULL,
   helpful SMALLINT NOT NULL,
   verified_purchase SMALLINT,
-  product_photo VARCHAR(512)
+  product_photo VARCHAR(512),
+  CREATE INDEX product_lookup ON reviews(product_id);
 );
 
 
