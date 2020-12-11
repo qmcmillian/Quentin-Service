@@ -12,16 +12,16 @@ const getRandomDate = () => {
   let randomMonth = Math.floor(Math.random() * 12) + 1;
   let randomDay = Math.floor(Math.random() * 28) + 1;
   let dateString = `${randomMonth}-${randomDay}-2020`;
-  return dateString
+  return dateString;
 }
 
 
 const generateData = (id) => {
   let data = '';
-  let numberOfReviews = Math.ceil(Math.random() * 3);
+  let numberOfReviews = Math.floor(Math.random() * 4) + 1;
   for (let j = 0; j <= numberOfReviews; j++) {
     let product_id = id
-    let user_id = Math.floor(Math.random() * 100) + 1;
+    let user_id = Math.floor(Math.random() * 10000000) + 1;
     let overall_rating = Math.floor(Math.random() * 5);
     let review_date = getRandomDate();
     let headline = faker.random.words(Math.floor(Math.random() * 4) + 2);
@@ -35,7 +35,7 @@ const generateData = (id) => {
 }
 
 const writeTenMillionReviews = (writer, encoding, callback) => {
-  let amountOfProducts = 3;
+  let amountOfProducts = 10000000;
   const write = () => {
     let ok = true;
     do {

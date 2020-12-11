@@ -1,5 +1,5 @@
 const pg = require('pg');
-const conString = "postgres://postgres:password@localhost:5432/amazonreviews";
+const conString = "postgres://quentinmcmillian:password@localhost:5432/amazonreviews";
 
 const client = new pg.Client(conString);
 client.connect(function(err) {
@@ -10,4 +10,4 @@ client.connect(function(err) {
   console.log('Connected to PostgreSQL database for Joe\'s Amazon Reviews service!');
 });
 
-module.exports = client.connection;
+module.exports = client
