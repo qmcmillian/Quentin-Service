@@ -1,3 +1,4 @@
+
 DROP DATABASE IF EXISTS amazonreviews;
 DROP TABLE IF EXISTS products, users, reviews;
 
@@ -27,9 +28,9 @@ CREATE TABLE reviews (
   full_text VARCHAR(1024) NOT NULL,
   helpful SMALLINT NOT NULL,
   verified_purchase SMALLINT,
-  product_photo VARCHAR(512),
-  CREATE INDEX product_lookup ON reviews(product_id);
+  product_photo VARCHAR(512)
 );
+  -- CREATE INDEX product_lookup ON reviews(product_id)
 
 
 GRANT ALL PRIVILEGES ON DATABASE amazonreviews TO quentinmcmillian;
